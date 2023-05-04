@@ -1,5 +1,47 @@
+:root {
+  --primary-dark: #006b7d;
+  --primary-main: #00d5fa;
+  --primary-light: #e6fbff;
+
+  --neutral-dark: #333333;
+  --neutral-main: #666666;
+  --neutral-medium-main: #858585;
+  --neutral-medium: #a3a3a3;
+  --neutral-light: #f0f0f0;
+
+  --background-default: #f6f6f6;
+  --background-alt: #ffffff;
+}
+
+.Container {
+  max-width: 1200px;
+  padding: 10px;
+  display: flex;
+  flex: 0 0 100%;
+}
+
+.MenuContainer {
+
+}
+
+.MainContainer {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  
+  gap: 10px;
+  width: 100%;
+}
+
+
+
+
+
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
 }
 
 .App-logo {

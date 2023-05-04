@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+}
+
+.tag {
+    border: 0;
+    border-radius: 10px;
+
+    height: 25px;
+    min-width: 40px;
+    background-color: #872fb098;
+    color: #ffffff;
+}

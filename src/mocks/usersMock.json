@@ -1,0 +1,156 @@
+[
+    {
+        "innerId": 1,
+        "id": "@eget",
+        "name": "Odio Pellentesque",
+        "avatar": "/images/avatars/3.png",
+        "background": "/images/backgrounds/1.jpg",
+        "followers": ["@congue", "@neque", "@nam", "@aliquam", "@sem"],
+        "follow": ["@leo", "@congue", "@sodales"]
+    },
+    {
+        "innerId": 2,
+        "id": "@leo",
+        "name": "Risus Viverra",
+        "avatar": "/images/avatars/4.webp",
+        "background": "/images/backgrounds/3.jpg",
+        "followers": ["@eget", "@sodales", "@auctor", "@tempus", "@nec"],
+        "follow": ["@nec", "@auctor", "@neque", "@nam", "@morbi"]
+    },
+    {
+        "innerId": 3,
+        "id": "@nec",
+        "name": "Magna Ac",
+        "avatar": "/images/avatars/5.png",
+        "background": "/images/backgrounds/1.jpg",
+        "followers": ["@leo", "@congue", "@sodales", "@vitae", "@nam", "@aliquam", "@morbi", "@sem"],
+        "follow": ["@auctor", "@aliquam", "@nam", "@sodales"]
+    },
+    {
+        "innerId": 4,
+        "id": "@congue",
+        "name": "Elit Ullamcorper",
+        "avatar": "/images/avatars/6.webp",
+        "background": "/images/backgrounds/2.jpg",
+        "followers": ["@eget", "@quis", "@auctor", "@tempus", "@pellentesque", "@aliquam", "@sem"],
+        "follow": ["@eget", "@sem", "@tempus", "@pellentesque", "@nec"]
+    },
+    {
+        "innerId": 5,
+        "id": "@sodales",
+        "name": "Felis Donec",
+        "avatar": "/images/avatars/7.png",
+        "background": "/images/backgrounds/3.jpg",
+        "followers": ["@eget", "@nec", "@quis", "@auctor", "@nam", "@aliquam"],
+        "follow": ["@auctor", "@nec", "@leo", "@nam", "@pellentesque", "@morbi"]
+    },
+    {
+        "innerId": 6,
+        "id": "@quis",
+        "name": "Scelerisque Felis",
+        "avatar": "/images/avatars/2.jpg",
+        "background": "/images/backgrounds/2.jpg",
+        "followers": ["@neque", "@tempus", "@nam", "@aliquam"],
+        "follow": ["@sodales", "@pellentesque", "@aliquam", "@congue"]
+    },
+    {
+        "innerId": 7,
+        "id": "@auctor",
+        "name": "Suspendisse Sed",
+        "avatar": "/images/avatars/7.png",
+        "background": "/images/backgrounds/2.jpg",
+        "followers": ["@leo", "@nec", "@sodales", "@nec", "@nam"],
+        "follow": ["@leo", "@morbi", "@congue", "@sodales"]
+    },
+    {
+        "innerId": 8,
+        "id": "@neque",
+        "name": "Nisi Lacus",
+        "avatar": "/images/avatars/8.png",
+        "background": "/images/backgrounds/1.jpg",
+        "followers": ["@leo", "@tempus", "@pellentesque", "@aliquam", "@morbi"],
+        "follow": ["@eget", "@nam", "@quis"]
+    },
+    {
+        "innerId": 9,
+        "id": "@vitae",
+        "name": "Sed Viverra",
+        "avatar": "/images/avatars/9.png",
+        "background": "/images/backgrounds/2.jpg",
+        "followers": [],
+        "follow": ["@pellentesque", "@nec", "@quam", "@sem"]
+    },
+    {
+        "innerId": 10,
+        "id": "@tempus",
+        "name": "Tellus In",
+        "avatar": "/images/avatars/10.png",
+        "background": "/images/backgrounds/3.jpg",
+        "followers": ["@congue", "@quam", "@pellentesque", "@nec", "@sem"],
+        "follow": ["@leo", "@quis", "@quam", "@neque", "@morbi", "@sem", "@congue"]
+    },
+    {
+        "innerId": 11,
+        "id": "@quam",
+        "name": "Hac Habitasse",
+        "avatar": "/images/avatars/11.png",
+        "background": "/images/backgrounds/3.jpg",
+        "followers": ["@vitae", "@tempus", "@morbi"],
+        "follow": ["@nam", "@morbi", "@aliquam", "@tempus"]
+    },
+    {
+        "innerId": 12,
+        "id": "@pellentesque",
+        "name": "Platea Dictumst",
+        "avatar": "/images/avatars/12.png",
+        "background": "/images/backgrounds/2.jpg",
+        "followers": ["@congue", "@sodales", "@quis", "@vitae"],
+        "follow": ["@nam", "@congue", "@morbi", "@neque", "@tempus"]
+    },
+    {
+        "innerId": 13,
+        "id": "@nec",
+        "name": "Vestibulum Rhoncus",
+        "avatar": "/images/avatars/13.png",
+        "background": "/images/backgrounds/2.jpg",
+        "followers": ["@leo", "@congue", "@sodales", "@vitae", "@nam", "@aliquam", "@morbi", "@sem"],
+        "follow": ["@morbi", "@auctor", "@tempus", "@leo"]
+    },
+    {
+        "innerId": 14,
+        "id": "@nam",
+        "name": "Est Pellentesque",
+        "avatar": "/images/avatars/14.png",
+        "background": "/images/backgrounds/1.jpg",
+        "followers": ["@leo", "@nec", "@sodales", "@neque", "@quam", "@pellentesque"],
+        "follow": ["@eget", "@sem", "@auctor", "@aliquam", "@nec", "@sodales", "@quis"]
+    },
+    {
+        "innerId": 15,
+        "id": "@aliquam",
+        "name": "Ac Placerat",
+        "avatar": "/images/avatars/15.png",
+        "background": "/images/backgrounds/3.jpg",
+        "followers": ["@nec", "@quis", "@quam", "@nam", "@morbi"],
+        "follow": ["@morbi", "@congue", "@nec", "@sodales", "@quis", "@neque", "@eget"]
+    },
+    {
+        "innerId": 16,
+        "id": "@morbi",
+        "name": "Vestibulum Lectus",
+        "avatar": "/images/avatars/16.png",
+        "background": "/images/backgrounds/2.jpg",
+        "followers": ["@leo", "@sodales", "@auctor", "@tempus", "@quam", "@pellentesque", "@nec", "@aliquam"],
+        "follow": ["@nec", "@aliquam", "@neque", "@quam"]
+    },
+    {
+        "innerId": 17,
+        "id": "@sem",
+        "name": "Mauris Ultrices",
+        "avatar": "/images/avatars/17.png",
+        "background": "/images/backgrounds/1.jpg",
+        "followers": ["@congue", "@vitae", "@tempus", "@nam"],
+        "follow": ["@nec", "@eget", "@congue", "@tempus"]
+    }
+    
+]

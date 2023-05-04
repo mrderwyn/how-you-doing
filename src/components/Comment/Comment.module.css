@@ -1,0 +1,33 @@
+.comment {
+    display: flex;
+    gap: 10px;
+}
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.avatar {
+    min-width: 40px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    font-weight: 500;
+}
+
+.date {
+    padding-left: 20px;
+    font-size: 14px;
+    color: #6C7A9C;
+}
+
+.text {
+    text-align: left;
+}

@@ -1,0 +1,72 @@
+.container {
+    background-color: var(--background-alt);;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.mainBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    height: 70px;
+    padding: 10px;
+}
+
+.controlButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 0 20px 10px 20px;
+}
+
+.optionsBox {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px 10px 20px;
+}
+
+.inputField {
+    width: 250px;
+}
+
+.input {
+    height: 100%;
+    width: 100%;
+
+    background-color: var(--background-alt);;
+    border: 0;
+
+    padding-left: 10px;
+}
+
+.input::placeholder {
+    color: var(--neutral-main);
+}
+
+.input:focus {
+    outline: none;
+}
+
+.button {
+    width: 120px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 0px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.tagSelector {
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}

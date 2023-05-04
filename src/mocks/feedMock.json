@@ -1,0 +1,282 @@
+[
+    {
+        "id": 1,
+        "user_id": "@eget",
+        "date": "Yesterday, 11:50 PM",
+        "picture": "/images/pictures/1.jfif",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel fringilla est ullamcorper eget. Tincidunt id aliquet risus feugiat in ante metus dictum. Morbi quis commodo odio aenean sed adipiscing diam. Non quam lacus suspendisse faucibus interdum."
+    },
+    {
+        "id": 2,
+        "user_id": "@eget",
+        "date": "Yesterday, 11:48 PM",
+        "picture": "/images/pictures/2.jfif",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictumst quisque sagittis purus sit amet volutpat consequat mauris nunc. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Sed euismod nisi porta lorem mollis aliquam ut."
+    },
+    {
+        "id": 3,
+        "user_id": "@leo",
+        "date": "Yesterday, 11:50 PM",
+        "picture": "/images/pictures/3.jfif",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci nulla pellentesque dignissim enim sit amet. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus. Lacinia at quis risus sed vulputate odio ut enim."    
+    },
+    {
+        "id": 4,
+        "user_id": "@nec",
+        "date": "Yesterday, 11:30 PM",
+        "picture": "/images/pictures/4.png",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fames ac turpis egestas integer eget aliquet nibh praesent. Vulputate enim nulla aliquet porttitor lacus luctus. Amet luctus venenatis lectus magna fringilla."    
+    },
+    {
+        "id": 5,
+        "user_id": "@leo",
+        "date": "Yesterday, 08:50 PM",
+        "picture": "/images/pictures/5.webp",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat ac felis donec et odio pellentesque diam. Gravida in fermentum et sollicitudin ac orci phasellus. Nunc sed blandit libero volutpat sed cras ornare arcu dui."    
+    },
+    {
+        "id": 6,
+        "user_id": "@sodales",
+        "date": "Yesterday, 05:20 PM",
+        "picture": "/images/pictures/2.jfif",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit sed vulputate mi sit amet. Dolor morbi non arcu risus quis varius quam quisque id. Aliquet lectus proin nibh nisl."    
+    },
+    {
+        "id": 7,
+        "user_id": "@neque",
+        "date": "Yesterday, 11:40 AM",
+        "picture": "/images/pictures/1.jfif",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet consectetur. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae. Consectetur purus ut faucibus pulvinar elementum integer enim neque."    
+    },
+    {
+        "id": 8,
+        "user_id": "@neque",
+        "date": "Yesterday, 10:50 AM",
+        "picture": "/images/pictures/4.png",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus scelerisque eleifend donec pretium vulputate sapien. Sagittis orci a scelerisque purus. Nulla pharetra diam sit amet nisl suscipit adipiscing."    
+    },
+    {
+        "id": 9,
+        "user_id": "@neque",
+        "date": "Yesterday, 05:20 AM",
+        "picture": "/images/pictures/3.jfif",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam id diam maecenas ultricies mi eget mauris pharetra. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Sed blandit libero volutpat sed."    
+    },
+    {
+        "id": 10,
+        "user_id": "@tempus",
+        "date": "26.04, 12:50 PM",
+        "picture": "/images/pictures/3.jfif",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus viverra vitae congue eu consequat ac. Sit amet purus gravida quis. Dis parturient montes nascetur ridiculus mus mauris vitae."    
+    },
+    {
+        "id": 11,
+        "user_id": "@tempus",
+        "date": "Year ago, 12:50 PM",
+        "picture": "/images/pictures/5.webp",
+        "tags": ["art"],
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien pellentesque habitant morbi tristique senectus. Quam quisque id diam vel quam elementum pulvinar etiam non. Ac turpis egestas maecenas pharetra convallis posuere morbi leo."    
+    },
+    {
+        "id": 12,
+        "user_id": "@morbi",
+        "date": "Testing date",
+        "picture": "/images/pictures/23.jpg",
+        "tags": ["photo", "art"],
+        "text": "A picture is worth a thousand words, but it takes skill to capture it. Photography is more than just pointing and shooting. It’s an art that requires practice and technique. Whether you’re a professional or just starting out, keep practicing and pushing yourself to create stunning images. Share your favorite photo you've taken and tell us what makes it special to you."
+    },
+    {
+        "id": 13,
+        "user_id": "@morbi",
+        "date": "Testing date",
+        "picture": "/images/pictures/22.jpg",
+        "tags": ["photo", "nature", "city"],
+        "text": "Discover the magic of the city through a photographer's lens 📷 Take a visual journey through bustling streets, iconic landmarks, and hidden corners of the city with our latest collection of stunning photography. You won't want to miss out on these captivating shots! Share your favorite city to explore through photography in the comments below."
+    },
+    {
+        "id": 14,
+        "user_id": "@morbi",
+        "date": "Testing date",
+        "picture": "/images/pictures/21.jpg",
+        "tags": ["photo", "city"],
+        "text": "The beauty of the city captured through a lens 📸 From the towering skyscrapers to the intricate architecture, there's something about city photography that always captures our attention. These stunning photos will have you feeling like you're right in the heart of the action. Share your favorite city photos in the comments below!"
+    },
+    {
+        "id": 15,
+        "user_id": "@morbi",
+        "date": "Testing date",
+        "picture": "/images/pictures/20.png",
+        "tags": ["photo", "people"],
+        "text": "These photographers capture the beauty of the world in breathtaking ways. From stunning landscapes to captivating portraits, these talented photographers have an eye for capturing the essence of the world around us. Check out some of their work in this gallery. Which photo is your favorite? Let us know in the comments!"
+    },
+    {
+        "id": 16,
+        "user_id": "@pellentesque",
+        "date": "Testing date",
+        "picture": "/images/pictures/19.jpg",
+        "tags": ["forge", "blacksmithing", "art"],
+        "text": "The art of blacksmithing is making a comeback 🔥 More and more people are rediscovering the beauty of creating hand-crafted metalwork. From crafting knives to ornamental pieces, the possibilities are endless. Have you ever tried blacksmithing? Share your creations in the comments!"
+    },
+    {
+        "id": 17,
+        "user_id": "@pellentesque",
+        "date": "Testing date",
+        "picture": "/images/pictures/17.png",
+        "tags": ["forge", "blacksmithing"],
+        "text": "Craft your own path with the unique art of blacksmithing. Whether it's making practical tools or beautiful decorative pieces, blacksmithing is a fascinating and rewarding hobby that allows you to express your creativity and connect with history. Have you ever tried blacksmithing before? Share your experiences and tips in the comments below!"
+    },
+    {
+        "id": 18,
+        "user_id": "@nec",
+        "date": "Testing date",
+        "picture": "/images/pictures/18.webp",
+        "tags": ["forge", "blacksmithing", "people"],
+        "text": "Get in touch with your inner craftsman! 🔨 Have you ever considered blacksmithing as a hobby? It's a fascinating way to create unique metal items using heat and metalworking tools. Plus, you'll learn skills that have been around for centuries. Let us know in the comments if you've tried blacksmithing before or if it's something you'd like to try!"
+    },
+    {
+        "id": 19,
+        "user_id": "@aliquam",
+        "date": "Testing date",
+        "picture": "/images/pictures/16.jpg",
+        "tags": ["sculpture", "art"],
+        "text": "The art of sculpting takes raw materials and transforms them into breathtaking masterpieces. From Michelangelo's David to modern day street art, sculptures have captivated us for centuries. The intricacy and attention to detail is something that must be seen in person to truly appreciate. What's your favorite sculpture or artist? Share in the comments!"
+    },
+    {
+        "id": 20,
+        "user_id": "@aliquam",
+        "date": "Testing date",
+        "picture": "/images/pictures/15.jpg",
+        "tags": ["sculpture", "art", "people"],
+        "text": "Friendship is forever captured in this stunning sculpture 💕 The sculpture, called Eternal Friendship, depicts two figures embracing and has become a symbol of the unbreakable bond between friends. It's a beautiful reminder of the power of friendship in our lives. Tag a friend who has been there for you through thick and thin."
+    },
+    {
+        "id": 21,
+        "user_id": "@aliquam",
+        "date": "Testing date",
+        "picture": "/images/pictures/14.jpg",
+        "tags": ["sculpture", "art", "people", "history"],
+        "text": "Step back in time and discover the beauty of ancient sculpture art 🗿 From Greek and Roman gods to intricate Egyptian hieroglyphs, ancient sculpture art tells a fascinating story about our past. Let's take a closer look at some of the most impressive works. Which ancient sculpture art piece is your favorite and why? Share in the comments below! 🤔"
+    },
+    {
+        "id": 22,
+        "user_id": "@eget",
+        "date": "Testing date",
+        "picture": "/images/pictures/13.jpg",
+        "tags": ["history", "coins"],
+        "text": "The history behind our coins is worth collecting too! Did you know that coins have been used for thousands of years and tell stories of the civilizations that used them? From ancient Greece to modern times, each coin has a unique tale to tell. Start your own coin collection today and dive into the fascinating history behind them. Share in the comments if you collect coins and what inspired you to start your collection."
+    },
+    {
+        "id": 23,
+        "user_id": "@neque",
+        "date": "Testing date",
+        "picture": "/images/pictures/12.jpg",
+        "tags": ["history", "coins"],
+        "text": "The stories behind historic coins are fascinating! From ancient times to modern-day, coins have held immense cultural significance. Take a closer look at the history and stories behind some of the most fascinating collections in the world. Share with us your favorite coin collection or piece of numismatic history!"
+    },
+    {
+        "id": 24,
+        "user_id": "@neque",
+        "date": "Testing date",
+        "picture": "/images/pictures/11.jpg",
+        "tags": ["history", "coins"],
+        "text": "The stories behind coins are just as valuable as the coins themselves. 💰 Collections of old coins offer insight into different time periods, cultures, and traditions. What can we learn from them?  Do you collect coins? Share a photo or tell us about your favorite piece!"
+    },
+    {
+        "id": 25,
+        "user_id": "@neque",
+        "date": "Testing date",
+        "picture": "/images/pictures/13.jpg",
+        "tags": ["history", "coins"],
+        "text": "The history behind our coins is worth collecting too! Did you know that coins have been used for thousands of years and tell stories of the civilizations that used them? From ancient Greece to modern times, each coin has a unique tale to tell. Start your own coin collection today and dive into the fascinating history behind them. Share in the comments if you collect coins and what inspired you to start your collection."
+    },
+    {
+        "id": 26,
+        "user_id":"@eget",
+        "date": "Testing date",
+        "picture": "/images/pictures/10.jpg",
+        "tags": ["art", "paint"],
+        "text": "The beauty of art is timeless and knows no boundaries.  Whether it’s centuries-old classics or modern-day masterpieces, famous art pieces continue to captivate audiences with their unique expression and style. Share your favorite art pieces or artists in the comments below!"
+    },
+    {
+        "id": 27,
+        "user_id": "@leo",
+        "date": "Testing date",
+        "picture": "/images/pictures/10.jpg",
+        "tags": ["art", "paint"],
+        "text": "The beauty of art is timeless and knows no boundaries.  Whether it’s centuries-old classics or modern-day masterpieces, famous art pieces continue to captivate audiences with their unique expression and style. Share your favorite art pieces or artists in the comments below!"
+    },
+    {
+        "id": 28,
+        "user_id": "@quis",
+        "date": "Testing date",
+        "picture": "/images/pictures/9.jpg",
+        "tags": ["art", "paint"],
+        "text": "Step into the world of renowned artists with these awe-inspiring pieces 🎨 From Vincent Van Gogh to Leonardo da Vinci, these masterpieces have captured the hearts of art enthusiasts around the world. Explore some of the most famous artworks of all time in this captivating guide. Share your favorite piece of art in the comments below! "
+    },
+    {
+        "id": 29,
+        "user_id": "@quis",
+        "date": "Testing date",
+        "picture": "/images/pictures/10.jpg",
+        "tags": ["art", "paint"],
+        "text": "The beauty of art is timeless and knows no boundaries. Whether it’s centuries-old classics or modern-day masterpieces, famous art pieces continue to captivate audiences with their unique expression and style. Share your favorite art pieces or artists in the comments below!"
+    },
+    {
+        "id": 30,
+        "user_id": "@quis",
+        "date": "Testing date",
+        "picture": "/images/pictures/8.jpg",
+        "tags": ["art", "paint"],
+        "text": "The beauty of art is in its ability to capture a moment in time 🎨 Whether it’s a classic painting or a modern masterpiece, famous art pieces have the power to transport us to another world with just one glance. Share your favorite piece of art in the comments below!"
+    },
+    {
+        "id": 31,
+        "user_id": "@quis",
+        "date": "Testing date",
+        "picture": "/images/pictures/7.jpg",
+        "tags": ["art", "paint"],
+        "text": "Discover the world's most iconic masterpieces 🎨 From the Mona Lisa to Starry Night, these artworks have captured the hearts and minds of millions of people worldwide. Take a closer look at the stories behind these timeless classics. What's your favorite piece of art and why? Share with us in the comments! 🖌"
+    },
+    {
+        "id": 32,
+        "user_id": "@eget",
+        "date": "Testing date",
+        "picture": "/images/pictures/6.jpg",
+        "tags": ["art", "paint", "modern"],
+        "text": "Modern art is not just a pretty picture on a wall, it's an expression of life. From abstract to surrealism, modern art can take on many forms. It's about pushing boundaries and breaking rules, challenging the status quo to make us think differently. Share your favorite modern art piece and tell us why it inspires you."
+    },
+    {
+        "id": 33,
+        "user_id": "@nam",
+        "date": "Testing date",
+        "picture": "/images/pictures/24.jpg",
+        "tags": ["origami"],
+        "text": "Discover the art of paper folding with origami! From simple shapes to intricate designs, the possibilities are endless. All you need is a sheet of paper and some patience. It's a great way to relieve stress and exercise your creativity. Share your favorite origami creations in the comments!"
+    },
+    {
+        "id": 34,
+        "user_id": "@nam",
+        "date": "Testing date",
+        "picture": "/images/pictures/25.jpg",
+        "tags": ["origami"],
+        "text": "Get ready to fold! Origami is a creative and relaxing activity for all ages. Whether you're a beginner or a seasoned pro, the possibilities of what you can create with just a piece of paper are endless. Plus, it's a great way to destress and unwind after a long day. Share a picture of your favorite origami creation in the comments! 🎨"
+    },
+    {
+        "id": 35,
+        "user_id": "@nam",
+        "date": "Testing date",
+        "picture": "/images/pictures/26.jpg",
+        "tags": ["origami"],
+        "text": "Folding paper has never been more exciting - say hello to the art of origami! 🌟 From cranes to butterflies, origami offers a unique way to unwind and explore your creativity. Who knows, you may even surprise yourself with what you can create! Have you ever tried origami before? Share your favorite origami creations in the comments! 🐦🦋🐍"
+    }
+]

@@ -1,0 +1,35 @@
+.card {
+    display: flex;
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+.avatar {
+    border-radius: 50%;
+
+    width: 40px;
+    height: 40px;
+}
+
+.info {
+
+}
+
+.name {
+    font-size: 16px;
+}
+
+.id {
+    font-size: 14px;
+    text-align: left;
+
+    color: var(--neutral-medium-main);
+}
+
+.link {
+    text-decoration: none;
+    color: unset;
+
+    display: flex;
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "feed_id": 1,
+        "user_id": 7,
+        "date": "Yesterday, 11:51 PM",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eleifend quam adipiscing vitae proin."
+    },
+    {
+        "id": 2,
+        "feed_id": 1,
+        "user_id": 5,
+        "date": "Yesterday, 11:52 PM",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+        "id": 3,
+        "feed_id": 1,
+        "user_id": 16,
+        "date": "Yesterday, 11:53 PM",
+        "text": "sagittis aliquam malesuada bibendum arcu vitae elementum curabitur"
+    },
+    {
+        "id": 4,
+        "feed_id": 2,
+        "user_id": 7,
+        "date": "Today, 11:51 PM",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eleifend quam adipiscing vitae proin."
+    }
+]
