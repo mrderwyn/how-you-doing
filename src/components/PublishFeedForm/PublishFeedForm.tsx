@@ -7,6 +7,8 @@ import TagsContainer from '../TagsContainer/TagsContainer';
 import Button from '../Button/Button';
 
 import styles from './PublishFeedForm.module.css';
+import { useSelector } from 'react-redux';
+import { selfSelector } from '../../redux/selectors';
 
 const PublishFeedForm = () => {
     const [tags, setTags] = useState([] as any[]);
@@ -65,10 +67,12 @@ const PublishFeedForm = () => {
         setTagsShown(!tagsShownRef.current);
     }, []);
 
+    const self = useSelector(selfSelector);
+
     return (
         <div className={styles.container}>
             <div className={styles.mainBox}>
-                    <UserCard avatar='http://localhost:3000/images/avatars/3.png' />
+                    <UserCard avatar={self.avatar} id={self.id} />
                     <input className={styles.input} type='text' placeholder='How you doing' />
                 </div>
                 <div className={styles.controlButtons}>
