@@ -2,10 +2,18 @@ import React from 'react';
 
 import { NavLink } from 'react-router-dom';
 import scroll from '../../helpers/scrollToTop';
+import { LightUserInfoType } from '../../types';
 
 import styles from './UserCard.module.css';
 
-const UserCard = ({id, name, avatar}: any) => {
+type UserCardPropsType = {
+    id: string,
+    avatar: string,
+    name?: string,
+    onlyName?: boolean,
+};
+
+const UserCard = ({ id, name, avatar, onlyName }: UserCardPropsType) => {
     const containInfo = name && id;
     
     return (
@@ -18,7 +26,7 @@ const UserCard = ({id, name, avatar}: any) => {
                 <img className={styles.avatar} src={avatar} alt='avatar' />
                 {containInfo && (<div className={styles.info}>
                     <p className={styles.name}>{name}</p>
-                    <p className={styles.id}>{id}</p>
+                   {!onlyName && <p className={styles.id}>{id}</p>}
                 </div>)}
             </div>
         </NavLink>

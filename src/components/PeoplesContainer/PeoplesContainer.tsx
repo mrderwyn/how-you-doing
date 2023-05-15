@@ -1,37 +1,48 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 
 import { useSelector } from 'react-redux';
-import { selfSelector, profileSelector } from '../../redux/selectors';
+import { selfSelector, profileSelector, profileFollowSelector, profileFollowersSelector } from '../../redux/selectors';
 
-import { getUsers, getLightUserInfo } from '../../services/mockService';
+import { getAllUsers } from '../../services/firebaseService';
 
 import UserList from '../UserList/UserList';
 import Button from '../Button/Button';
 
 import styles from './PeoplesContainer.module.css';
 import Loader from '../Loader/Loader';
+import FollowButton from '../FollowButton/FollowButton';
+import { IdentityObject } from '../../redux/types';
+import { LightUserInfoType } from '../../types';
 
 const PeoplesContainer = () => {
     const self = useSelector(selfSelector);
     const user = useSelector(profileSelector);
+    const follow = useSelector(profileFollowSelector);
+    const followers = useSelector(profileFollowersSelector);
 
     const [selected, setSelected] = useState('Following');
     const selectedRef = useRef(selected);
     selectedRef.current = selected;
 
-    const changeSelection = useCallback((value: any) => {
-        if (value !== selectedRef.current) {
+    //temporary
+    const [all, setAll] = useState([] as LightUserInfoType[]);
+    useEffect(() => {
+        getAllUsers().then(users => {
+            setAll(users);
+        });
+    }, []);
+
+    const changeSelection = useCallback((value: string | undefined) => {
+        if (value !== undefined && value !== selectedRef.current) {
             setSelected(value);
         }
     }, []);
 
-    const creator = useCallback((id: any) => {
-        return self.follow.includes(id)
-            ?   <Button main>Unfollow</Button>
-            :   <Button>Follow</Button>;
+    const creator = useCallback(({ id }: IdentityObject) => {
+        return <FollowButton id={id} />;
     }, [self]);
 
-    if (user === null){
+    if (self === null || user === null){
         return <Loader />;
     }
 
@@ -46,13 +57,13 @@ const PeoplesContainer = () => {
             </div>
             <div className={styles.content}>
                 {selected === 'Following' && (
-                    <UserList users={user.follow.map((i: any) => getLightUserInfo(i))} creator={creator} />
+                    <UserList users={follow} creator={creator} />
                 )}
                 {selected === 'Followers' && (
-                    <UserList users={user.followers.map((i: any) => getLightUserInfo(i))} creator={creator} />
+                    <UserList users={followers} creator={creator} />
                 )}
                 {selected === 'All' && (
-                    <UserList users={getUsers()} creator={creator} />
+                    <UserList users={all} creator={creator} />
                 )}
             </div>
         </div>

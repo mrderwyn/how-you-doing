@@ -3,10 +3,19 @@ import Button from '../Button/Button';
 
 import styles from './InputField.module.css';
 
-const InputField = ({ placeholder, submit, clearAfter, autocomplete, buttonText='Input' }: any) => {
+type InputFieldProps = {
+    placeholder: string,
+    submit: (value: string) => void,
+    clearAfter?: boolean,
+    autocomplete?: boolean,
+    buttonText?: string,
+    defaultValue?: string,
+};
+
+const InputField = ({ placeholder, submit, clearAfter, autocomplete, buttonText='Input', defaultValue='' }: InputFieldProps) => {
     const autoCompleteValue = !!autocomplete ? 'on' : 'off';
 
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(defaultValue);
     const valueRef = useRef(value);
     valueRef.current = value;
 
@@ -17,7 +26,7 @@ const InputField = ({ placeholder, submit, clearAfter, autocomplete, buttonText=
         }
     }, [clearAfter]);
 
-    const changeHandler = useCallback((event: any) => {
+    const changeHandler = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     }, []);
 

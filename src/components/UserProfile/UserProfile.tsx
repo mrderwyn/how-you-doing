@@ -2,35 +2,27 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import { profileSelector } from '../../redux/selectors';
+import { profileFollowersSelector, profileFollowSelector, profileSelector } from '../../redux/selectors';
 
 import scroll from '../../helpers/scrollToTop';
-
-import Button from '../Button/Button';
 
 import cn from 'classnames';
 
 import styles from './UserProfile.module.css';
 import Loader from '../Loader/Loader';
+import FollowButton from '../FollowButton/FollowButton';
 
-
-const checkRelations = (relations: any, selfReturn: any, followedReturn: any, notFollowedReturn: any) => {
-    if (relations === 'self') {
-        return selfReturn;
-    }
-
-    return relations === 'followed' ? followedReturn : notFollowedReturn;
-};
-
-const UserProfile = ({self}: any) => {
+const UserProfile = () => {
     const profile = useSelector(profileSelector);
+    const followArr = useSelector(profileFollowSelector);
+    const followersArr = useSelector(profileFollowersSelector);
+
     if (profile === null){
         return <Loader />;
     }
     
-    const { background, avatar, name, id, followedBy } = profile;
-    const [followers, follows] = [profile.followers.length, profile.follow.length];
-    const relations = self ? 'self' : (followedBy ? 'followed' : 'notfollowed');
+    const { background, avatar, name, id } = profile;
+    const [followers, follows] = [followersArr.length, followArr.length];
 
     return (
         <div className={styles.container}>
@@ -59,13 +51,7 @@ const UserProfile = ({self}: any) => {
                 </div>
                 <div className={styles.separator} />
                 <div className={styles.box}>
-                    {
-                        checkRelations(
-                            relations,
-                            <Button main>Edit</Button>,
-                            <Button main>Unfollow</Button>,
-                            <Button>Follow</Button>)
-                    }
+                    <FollowButton id={id} />
                 </div>
             </div>
         </div>

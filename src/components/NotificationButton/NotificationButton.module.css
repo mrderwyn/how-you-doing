@@ -1,0 +1,13 @@
+.container {
+    position: relative;
+}
+
+.container .unread {
+    position: absolute;
+    top: -5px;
+    right: -30px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+}

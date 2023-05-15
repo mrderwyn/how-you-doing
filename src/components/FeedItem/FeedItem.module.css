@@ -30,8 +30,6 @@
 .date {
     align-self: flex-end;
     margin-right: 10px;
-    font-size: 14px;
-    color: var(--neutral-medium);
 }
 
 .contentPicture {
@@ -46,5 +44,19 @@
 
 .contentText {
     max-width: 400px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px 5px 5px;
+}
+
+.content {
     margin-bottom: 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: unset;
 }

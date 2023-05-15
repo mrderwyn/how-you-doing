@@ -1,0 +1,16 @@
+.date {
+    font-size: 14px;
+    color: var(--neutral-medium);
+}
+
+@media only screen and (min-width: 320px) and (max-width: 600px) {
+    .date {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+    .date {
+        font-size: 12px;
+    }
+}

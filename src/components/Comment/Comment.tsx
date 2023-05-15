@@ -1,10 +1,12 @@
 import React from 'react';
+import { CommentType } from '../../types';
+import TimeAgo from '../TimeAgo/TimeAgo';
 
 import UserCard from '../UserCard/UserCard';
 
 import styles from './Comment.module.css';
 
-const Comment = ({id, date, user, text}: any) => {
+const Comment = ({id, date, user, text}: CommentType) => {
     return (
         <div className={styles.comment}>
             <div className={styles.avatar}>
@@ -13,7 +15,9 @@ const Comment = ({id, date, user, text}: any) => {
             <div className={styles.rightSide}>
                 <div className={styles.header}>
                     <p className={styles.name}>{user.name}</p>
-                    <p className={styles.date}>{date}</p>
+                    <div className={styles.date}>
+                        <TimeAgo date={date} />
+                    </div>
                 </div>
                 <p className={styles.text}>
                     {text}

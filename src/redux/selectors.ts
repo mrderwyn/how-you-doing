@@ -1,9 +1,33 @@
-export const isSelfProfileSelector = (state: any) => state.profile === null || state.profile.id === state.self.id;
+import { StateType } from './types';
 
-export const commentsSelector = (state: any) => state.postDetails.comments;
+export const isSelfProfileSelector = (state: StateType) => state.profile.profile === null || state.profile.profile.info?.id === state.self.self?.id;
 
-export const selfSelector = (state: any) => state.self;
+export const commentsSelector = (state: StateType) => state.postDetails.postDetails?.comments ?? null;
 
-export const postsSelector = (state: any) => state.posts;
+export const postDetailsSelector = (state: StateType) => state.postDetails.postDetails?.post ?? null;
 
-export const profileSelector = (state: any) => state.profile;
+export const selfSelector = (state: StateType) => {
+    return state.self.self;
+}
+
+export const postsSelector = (state: StateType) => {
+    return state.posts.posts;
+}
+
+export const nextPostsSelector = (state: StateType) => state.posts.loadNext;
+export const hasNextPostsSelector = (state: StateType) => state.posts.hasNext;
+
+export const profileSelector = (state: StateType) => state.profile.profile.info;
+
+export const profileFollowSelector = (state: StateType) => state.profile.profile?.follow ?? [];
+export const profileFollowersSelector = (state: StateType) => state.profile.profile?.followers ?? [];
+
+export const tokenSelector = (state: StateType) => state.self.token;
+
+export const followsSelector = (state: StateType) => {
+    return state.follow.follows;
+}
+
+export const unreadNotificationsSelector = (state: StateType) => state.notifications.notifications.unreaded ?? [];
+
+export const notificationsSelector = (state: StateType) => state.notifications.notifications;

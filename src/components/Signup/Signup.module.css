@@ -1,0 +1,42 @@
+.container {
+    background-color: var(--background-alt);
+    border-radius: 20px;
+    padding: 20px;
+
+    max-width: 500px;
+    align-self: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input {
+    height: 30px;
+    width: 100%;
+
+    background-color: var(--background-alt);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--neutral-main);
+
+    padding-left: 10px;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input::placeholder {
+    color: var(--neutral-main);
+}
+
+.formItem {
+    padding: 10px;
+}
+
+.error {
+    color: red;
+}

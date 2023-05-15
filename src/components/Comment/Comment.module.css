@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 
 .avatar {
@@ -16,6 +17,9 @@
 .header {
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding-right: 10px;
 }
 
 .name {
@@ -24,8 +28,6 @@
 
 .date {
     padding-left: 20px;
-    font-size: 14px;
-    color: #6C7A9C;
 }
 
 .text {

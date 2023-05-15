@@ -1,20 +1,34 @@
-import React, { useCallback } from 'react';
+import React, { ReactNode, useCallback } from 'react';
 
 import cn from 'classnames';
 import styles from './Button.module.css';
 
-const Button = ({ type, children, action, data, icon, activated, main }: any) => {
-    const clickHandler = useCallback((event: any) => {
+type ButtonProps = {
+    type?: 'submit' | 'button' | 'reset',
+    children?: ReactNode,
+    action: (value: string | undefined) => void,
+    data?: string,
+    icon?: string,
+    activated?: boolean,
+    main?: boolean,
+    className?: string,
+};
+
+const Button = ({ type = 'submit', children, action, data, icon, activated, main, className }: ButtonProps) => {
+    const clickHandler = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         action && action(data);
     }, []);
 
-    const names = [styles.button];
+    const names = icon ? [styles.iconButton] : [styles.button];
+    className && names.push(className);
     icon && names.push(styles[`icon-${icon}`]);
     activated && names.push(styles.activated);
     main && names.push(styles.main);
 
-    return <button type={type} onClick={clickHandler} className={cn(...names)}>{children}</button>
+    return <button type={type} onClick={clickHandler} className={cn(...names)}>
+        {children}
+    </button>
 };
 
 export default Button;

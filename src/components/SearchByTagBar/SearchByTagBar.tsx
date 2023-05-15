@@ -5,12 +5,16 @@ import InputField from '../InputField/InputField';
 
 import styles from './SearchByTagBar.module.css';
 
-const SearchByTagBar = ({ submit, tags }: any) => {
+type SearchByTagBarPropsType = {
+    submit: (key: string) => void,
+    tags: string[]
+};
+
+const SearchByTagBar = ({ submit, tags }: SearchByTagBarPropsType) => {
     return (
         <div className={styles.container}>
             <div className={styles.searchBar}>
-                <InputField placeholder='input tag' submit={submit} buttonText='Submit' />
-                
+                <InputField placeholder='input tag' submit={submit} buttonText='Submit' />    
             </div>
             <p>or select tag</p>
             <TagsContainer tags={tags} action={submit} />

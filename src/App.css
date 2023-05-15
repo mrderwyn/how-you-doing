@@ -22,20 +22,21 @@
 
 .MenuContainer {
 
+  transition: transform 0.4s linear, box-shadow 0.4s linear;
 }
 
 .MainContainer {
+  position: relative;
+
   margin: 10px;
   display: flex;
   flex-direction: column;
   
   gap: 10px;
   width: 100%;
+
+  transition: transform 0.4s linear, box-shadow 0.4s linear;
 }
-
-
-
-
 
 .App {
   text-align: center;
@@ -76,5 +77,60 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.MenuToggleButton {
+  display: none;
+  position: fixed;
+  left: 5px;
+  top: 5px;
+  z-index: 1;
+}
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+
+@media only screen and (min-width: 320px) and (max-width: 600px) {
+  .MenuToggleButton {
+    display: block;
+  }
+
+  .Container {
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  .MenuContainer {
+    transform: translateX(-15rem);
+    flex-shrink: 0;
+  }
+
+  .MainContainer {
+    margin: 0;
+    transform: translateX(-7rem);
+    flex-shrink: 1;
+  }
+
+  .Container-toggled .MenuContainer {
+    transform: translateX(6rem) translateY(5rem);
+  }
+
+  .Container-toggled .MainContainer {
+    box-shadow: 20px -10px gray;
+    transform: rotateX(4deg) rotateY(60deg) rotateZ(4deg) 
+               translateY(5rem) translateX(-12rem);
+    min-height: 600px;
+  }
+}
+
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+  .MenuContainer {
+    max-width: 150px;
+  }
+
+  .MainContainer {
+    padding-left: 10px;
   }
 }
