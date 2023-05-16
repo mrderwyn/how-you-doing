@@ -1,5 +1,6 @@
 .container {
     width: 100%;
+    max-width: 500px;
 }
 
 .main {
@@ -33,7 +34,7 @@
 }
 
 .contentPicture {
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .contentPicture > img {
