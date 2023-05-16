@@ -31,3 +31,6 @@ export const followsSelector = (state: StateType) => {
 export const unreadNotificationsSelector = (state: StateType) => state.notifications.notifications.unreaded ?? [];
 
 export const notificationsSelector = (state: StateType) => state.notifications.notifications;
+
+export const postDetailsLoadingSelector = (state: StateType) => state.postDetails.loading;
+export const profileLoadingSelector = (state: StateType) => state.profile.loading;

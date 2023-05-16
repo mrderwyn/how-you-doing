@@ -337,9 +337,10 @@ export const queryPostsWithListenerAndEndlessScroll = async (authors: string[], 
     let mainQuery = query(posts, ...queryConstraints, limit(10));
     const mainSnap = await getDocs(mainQuery);
 
-    const promises: Promise<PostType>[] = [];
+    const promises: Promise<PostType | null>[] = [];
     mainSnap.forEach(d => promises.push(getPostById(d.id)));
-    const result = await Promise.all(promises);
+    const result = (await Promise.all(promises)).filter(p => p !== null) as PostType[];
+    console.log('RESULT', result);
 
     const createNextCallback = () => {
         let lastReaded = mainSnap.docs[mainSnap.docs.length - 1];
@@ -347,9 +348,9 @@ export const queryPostsWithListenerAndEndlessScroll = async (authors: string[], 
 
         return async () => {
             const insideSnap = await getDocs(q);
-            const insidePromises: Promise<PostType>[] = [];
+            const insidePromises: Promise<PostType | null>[] = [];
             insideSnap.forEach(d => insidePromises.push(getPostById(d.id)));
-            const insideResult = await Promise.all(insidePromises);
+            const insideResult = (await Promise.all(insidePromises)).filter(p => p !== null) as PostType[];
 
             if (insideResult.length < 10) {
                 return [insideResult, false] as const;
@@ -362,7 +363,7 @@ export const queryPostsWithListenerAndEndlessScroll = async (authors: string[], 
         };
     };
 
-    const next = createNextCallback();
+    const next = result.length > 0 ? createNextCallback() : () => Promise.resolve([[] as PostType[], false] as const);
 
     if (!listeners) {
         return [result, () => {}, next] as const;
@@ -479,7 +480,11 @@ export const getCommentsWithListener = async (postId: string, listeners: any) =>
 
 const getPostByIdUncached = async (id: string) => {
     const docRef = doc(firestore, 'posts', id);
-    const data = (await getDoc(docRef)).data() as FirestorePostDataType;
+    const data = (await getDoc(docRef)).data() as FirestorePostDataType | undefined;
+    if (!data) {
+        return null;
+    }
+
     const user = await getLightUserById(data.author.id);
     if (!user) {
         throw new Error('Error while getting post data from Firestore');
@@ -592,13 +597,13 @@ const getNotificationByDocument: (document: QueryDocumentSnapshot<DocumentData>)
 }
 
 export const getNotificationsWithListener = async (userId: string, listeners: any) => {
-    const followersQuery = query(collection(firestore, 'relations'), where('follower', '==', userDoc(userId)));
+    const followersQuery = query(
+        collection(firestore, 'relations'),
+        where('follower', '==', userDoc(userId)));
     const follows = (await getDocs(followersQuery)).docs.map(d => `follower(${d.data().followed.id})`);
     follows.push(userId);
 
-    const queryConstraints = where('interesting', 'in', follows);
-
-    const mainQuery = query(collection(firestore, 'history'), queryConstraints);
+    const mainQuery = query(collection(firestore, 'history'), where('interesting', 'in', follows), orderBy('createdAt', 'desc'));
     const snapshot = await getDocs(mainQuery);
     const promises = snapshot.docs.map(async doc => await getNotificationByDocument(doc));
     

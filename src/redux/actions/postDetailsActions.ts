@@ -1,11 +1,12 @@
 import { CommentType } from "../../types";
-import { setPostDetails, updateComments } from "../slices/postDetailsSlice/slice";
+import { setLoading, setPostDetails, updateComments } from "../slices/postDetailsSlice/slice";
 import { ArgumentType } from "../types";
 
 let clearCommentsListener = () => {};
 export const fetchPostDetails = (id: any) => async (dispatch: any, getState: any, extraArgument: ArgumentType) => {
     clearCommentsListener();
     const { serviceApi } = extraArgument;
+    dispatch(setLoading(true));
     dispatch(setPostDetails({ details: null }));
 
     const post = await serviceApi.getPostById(id);
@@ -17,6 +18,7 @@ export const fetchPostDetails = (id: any) => async (dispatch: any, getState: any
     });
 
     clearCommentsListener = () => unsubscribe();
+    dispatch(setLoading(false));
     dispatch(setPostDetails({details: { post, comments }}));
 };
 

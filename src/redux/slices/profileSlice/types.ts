@@ -7,5 +7,6 @@ type ProfileType = {
 }
 
 export type ProfileSliceType = {
-    profile: ProfileType
+    profile: ProfileType,
+    loading: boolean
 };

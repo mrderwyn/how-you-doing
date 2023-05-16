@@ -8,9 +8,10 @@ import UserProfile from '../components/UserProfile/UserProfile';
 
 import { useDispatch, useSelector } from 'react-redux';
 //import { fetchProfile, fetchPosts, stopListenProfile } from '../redux/mainSlice';
-import { selfSelector } from '../redux/selectors';
+import { profileLoadingSelector, profileSelector, selfSelector } from '../redux/selectors';
 import { fetchProfile, stopListenProfile } from '../redux/actions/profileActions';
 import { fetchPosts, stopListenPosts  } from '../redux/actions/postsActions';
+import NotFound from '../components/NotFound/NotFound';
 
 const ProfilePage = () => {
     const { id } = useParams();
@@ -33,18 +34,18 @@ const ProfilePage = () => {
             stopListenPosts();
         }
     }, [location]);
-
-    //dispatch(fetchProfile(id) as any);
     
+    const profile = useSelector(profileSelector);
+    const loading = useSelector(profileLoadingSelector);
 
-    return (
-        <>
+    return (!loading && profile === null)
+        ? <NotFound text="We can't find that profile" />
+        : <>
             <UserProfile />
             {id === self?.id && (<PublishFeedForm />)}
             <SearchBar withoutFollowing />
             <Feed />
         </>    
-    );
 };
 
 export default ProfilePage;

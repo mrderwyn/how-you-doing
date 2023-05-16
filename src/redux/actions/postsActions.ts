@@ -38,6 +38,7 @@ export const fetchPosts = (from: any, query: any, promt: any) => async (dispatch
     clearPostsListener = () => unsubscribe();
     dispatch(setPosts({ posts: data, next: generateNext() }));
 }
+
 export const stopListenPosts = () => {
     clearPostsListener();
 }

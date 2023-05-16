@@ -25,6 +25,7 @@ import { loadFollows } from './redux/actions/followActions';
 
 import cn from 'classnames';
 import Button from './components/Button/Button';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ function App() {
     <Route path='peoples/:id' element={<PeoplesPage />} />
     <Route path='post/:id' element={<PostPage />} />
     <Route path='/notifications' element={<NotificationsPage />} />
+    <Route path='*' element={<NotFound text="We can't find that page" />} />
   </>;
 
   const unauthRoutes = <>

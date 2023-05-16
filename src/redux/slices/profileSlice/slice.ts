@@ -6,7 +6,8 @@ const initialState: ProfileSliceType = {
         info: null,
         follow: [],
         followers: [],
-    }
+    },
+    loading: false,
 };
 
 export const profileSlice = createSlice({
@@ -30,6 +31,9 @@ export const profileSlice = createSlice({
             };
             state.profile.follow = action.payload.user.follow;
             state.profile.followers = action.payload.user.followers;
+        },
+        setLoading: (state, action) => {
+            state.loading = action.payload;
         },
         updateProfilePeoples: (state, action) => {
 
@@ -77,6 +81,7 @@ export const profileSlice = createSlice({
 
 export const {
     setProfile,
-    updateProfilePeoples
+    updateProfilePeoples,
+    setLoading
 } = profileSlice.actions;
 export default profileSlice.reducer;

@@ -1,9 +1,13 @@
-import { setProfile, updateProfilePeoples } from "../slices/profileSlice/slice";
+import { setLoading, setProfile, updateProfilePeoples } from "../slices/profileSlice/slice";
 import { ArgumentType } from "../types";
 
 let clearUserListener = () => {};
 export const fetchProfile = (id: any) => async (dispatch: any, getState: any, extraArgument: ArgumentType) => {
     clearUserListener();
+
+    if (getState().profile.profile.info?.id !== id) {
+        dispatch(setLoading(true));
+    }
 
     const { serviceApi } = extraArgument;
     const answer = await serviceApi.getUserByIdWithListeners(id, getState().self.self.id, {
@@ -20,8 +24,9 @@ export const fetchProfile = (id: any) => async (dispatch: any, getState: any, ex
             dispatch(updateProfilePeoples({ type: 'removeFollowed', user }));
         },
     });
-
+    dispatch(setLoading(false));
     if (answer === null) {
+        dispatch(setProfile({ user: null }));
         return;
     }
 

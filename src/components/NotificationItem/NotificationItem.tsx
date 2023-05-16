@@ -9,13 +9,13 @@ import styles from './NotificationItem.module.css';
 const descByType = (type: string) => {
     switch (type) {
         case 'newpost':
-            return 'create a new post. take a look';
+            return 'published a new post. Take a look';
         case 'newfollow':
-            return 'is now following you !';
+            return 'started following you !';
         case 'unfollow':
-            return 'stop following you :(';
+            return 'stopped following you :(';
         case 'newcomment':
-            return 'comment your post. take a look';
+            return 'left a comment on your post. Take a look';
         default:
             return 'whoops. something wrong';
     }
@@ -34,13 +34,11 @@ const NotificationItem = ({ item }: NotificationItemPropsType) => {
         : <p className={styles.description}>{desc}</p>;
 
     return (
-        <NavLink to={item.target ?? '/'} draggable='false' className={styles.link}>
-            <div className={styles.info}>
+        <div className={styles.info}>
                 <UserCard {...item.user} onlyName />
                 {descElement}
                 <TimeAgo date={item.date} />
-            </div>
-        </NavLink>
+        </div>
     );
 }
 

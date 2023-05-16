@@ -6,5 +6,6 @@ type PostDetailsType = {
 };
 
 export type PostDetailsSliceType = {
-    postDetails: PostDetailsType
+    postDetails: PostDetailsType,
+    loading: boolean,
 };

@@ -2,7 +2,6 @@ import React, { useState, useCallback, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import SearchByTagBar from '../SearchByTagBar/SearchByTagBar';
-import InputField from '../InputField/InputField';
 import Button from '../Button/Button';
 
 import styles from './SearchBar.module.css';
@@ -36,6 +35,10 @@ const SearchBar = ({ withoutFollowing = false }: SearchBarPropsType) => {
     const [selected, setSelected] = useState(getSelectedFromQueryType(srh.get('t')));
     const selectedRef = useRef(selected);
     selectedRef.current = selected;
+
+    if (selectedRef.current !== getSelectedFromQueryType(srh.get('t'))) {
+        setSelected(getSelectedFromQueryType(srh.get('t')));
+    }
 
     const submitTag = useCallback((value: string) => {
         navigate(`${location.pathname}?t=t&s=${value}`);

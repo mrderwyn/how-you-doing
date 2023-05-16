@@ -7,11 +7,13 @@ import TagsContainer from '../TagsContainer/TagsContainer';
 import styles from './FeedItem.module.css';
 import TimeAgo from '../TimeAgo/TimeAgo';
 import { NavLink, useNavigate } from 'react-router-dom';
+import scrollToTop from '../../helpers/scrollToTop';
 
 const FeedItem = ({id, user, date, picture, text, tags}: PostType) => {
     const navigate = useNavigate();
     const navigateToTag = useCallback((tag: string) => {
         navigate(`/?t=t&s=${tag}`);
+        scrollToTop();
     }, []);
 
     return (

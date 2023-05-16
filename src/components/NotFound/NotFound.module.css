@@ -1,0 +1,34 @@
+.container {
+    background-color: var(--background-alt);
+    border-radius: 20px;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    width: 90px;
+    height: 90px;
+}
+
+.header {
+    margin-top: 40px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.text {
+    margin: 20px 0;
+    font-size: 18px;
+}

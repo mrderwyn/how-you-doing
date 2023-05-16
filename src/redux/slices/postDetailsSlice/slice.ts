@@ -4,14 +4,19 @@ import { PostDetailsSliceType } from './types';
 const initialState: PostDetailsSliceType = {
     postDetails: {
         post: null,
-        comments: []
-    }
+        comments: [],
+    },
+    
+    loading: false,
 };
 
 export const postDetailsSlice = createSlice({
     name: 'postDetails',
     initialState,
     reducers: {
+        setLoading: (state, action) => {
+            state.loading = action.payload;
+        },
         setPostDetails: (state, action) => {
             if (action.payload.details === null) {
                 state.postDetails.post = null;
@@ -49,6 +54,7 @@ export const postDetailsSlice = createSlice({
 
 export const {
     setPostDetails,
-    updateComments
+    updateComments,
+    setLoading
 } = postDetailsSlice.actions;
 export default postDetailsSlice.reducer;
