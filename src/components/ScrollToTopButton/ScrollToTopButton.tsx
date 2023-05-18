@@ -23,7 +23,7 @@ const ScrollToTopButton = () => {
     return <>
         {scrolled && 
             <div className={styles.scroll} onClick={scrollToTop}>
-                Scroll to top
+              <span className={styles.text}>Scroll to top</span>
             </div>
         }
     </>;

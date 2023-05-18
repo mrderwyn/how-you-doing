@@ -315,13 +315,19 @@ export const queryPostsWithListenerAndEndlessScroll = async (authors: string[], 
     const posts = collection(firestore, 'posts');
     const queryConstraints: (QueryOrderByConstraint | QueryFieldFilterConstraint)[] = [];
 
-    console.log('query posts', authors,type, promt );
+    console.log('query posts', authors, type, promt );
 
     queryConstraints.push(orderBy('createdAt', 'desc'));
     if (type === 'f') {
         const followersQuery = query(collection(firestore, 'relations'), where('follower', '==', userDoc(authors[0])));
         const follows = (await getDocs(followersQuery)).docs.map(d => d.data().followed);
-        queryConstraints.push(where('author', 'in', follows));
+        console.log('query by follows', follows);
+        if (follows.length > 0) {
+            queryConstraints.push(where('author', 'in', follows));
+        }
+        else {
+            return [[], () => {}, () => Promise.resolve([[] as PostType[], false])] as const;
+        }
     }
     else if (authors.length === 1) {
         queryConstraints.push(where('author', '==', userDoc(authors[0])));

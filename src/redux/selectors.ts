@@ -1,6 +1,7 @@
 import { StateType } from './types';
 
-export const isSelfProfileSelector = (state: StateType) => state.profile.profile === null || state.profile.profile.info?.id === state.self.self?.id;
+export const isSelfProfileSelector = (state: StateType) =>
+    state.profile.profile.info !== null && state.profile.profile.info.id === state.self.self?.id;
 
 export const commentsSelector = (state: StateType) => state.postDetails.postDetails?.comments ?? null;
 

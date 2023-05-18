@@ -9,7 +9,21 @@ import TimeAgo from '../TimeAgo/TimeAgo';
 import { NavLink, useNavigate } from 'react-router-dom';
 import scrollToTop from '../../helpers/scrollToTop';
 
-const FeedItem = ({id, user, date, picture, text, tags}: PostType) => {
+type FeedItemPropsType = PostType & {
+    disableLink?: boolean
+}
+
+const postContent = (picture: string, text: string) => <div className={styles.content}>
+    {picture && 
+        <div className={styles.contentPicture}>
+            <img src={picture} alt='picture' />
+        </div>}
+    <p className={styles.contentText}>
+        {text}
+    </p>
+</div>
+
+const FeedItem = ({id, user, date, picture, text, tags, disableLink}: FeedItemPropsType) => {
     const navigate = useNavigate();
     const navigateToTag = useCallback((tag: string) => {
         navigate(`/?t=t&s=${tag}`);
@@ -26,6 +40,22 @@ const FeedItem = ({id, user, date, picture, text, tags}: PostType) => {
                     </div>
                 </div>
                 <div className={styles.main}>
+                    {
+                        disableLink
+                            ? postContent(picture, text)
+                            : <NavLink to={`/post/${id}`} draggable='false' className={styles.link}>
+                                {postContent(picture, text)}
+                            </NavLink>
+                    }
+                    <TagsContainer tags={tags} action={navigateToTag} />
+                </div>
+                
+            </div>
+        </div>
+    );
+};
+/*
+
                     <NavLink to={`/post/${id}`} draggable='false' className={styles.link}>
                         <div className={styles.content}>
                             {picture && 
@@ -37,14 +67,6 @@ const FeedItem = ({id, user, date, picture, text, tags}: PostType) => {
                             </p>
                         </div>
                     </NavLink>
-                    <TagsContainer tags={tags} action={navigateToTag} />
-                </div>
-                
-            </div>
-        </div>
-    );
-};
-//<NavLink to={`/post/${id}`} draggable='false' className={styles.link}>
-//
+*/
 
 export default FeedItem;

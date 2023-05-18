@@ -7,7 +7,6 @@ export const fetchPosts = (from: any, query: any, promt: any) => async (dispatch
     clearPostsListener();
 
     const { serviceApi } = extraArgument;
-    console.log('fetching posts', from, query, promt);
 
     const [data, unsubscribe, next] = await serviceApi.filterPosts(
         getState().self.self.id, from, query, promt, {
@@ -17,6 +16,8 @@ export const fetchPosts = (from: any, query: any, promt: any) => async (dispatch
             removePost: (post: PostType) => {}
         }
     );
+
+    console.log('fetched posts', data, unsubscribe, next);
 
     const generateNext = () => {
         let hasNext = true;

@@ -4,6 +4,7 @@ import ImageUploader from 'react-images-upload';
 
 import styles from './EditImageField.module.css';
 import Button from '../Button/Button';
+import ImageLoader from '../ImageLoader/ImageLoader';
 
 type EditImageFieldPropsType = {
     defaultImage: string,
@@ -50,15 +51,8 @@ const EditImageField = ({ defaultImage, uploadTo, actionWithUrl, type }: EditIma
     return editMode
         ? (
             <div className={styles.container}>
-                <ImageUploader
-                    fileContainerStyle={{backgroundColor: 'var(--background-default)'}}
-                    buttonText='Choose avatar'
-                    onChange={onImageDrop}
-                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                    maxFileSize={5242880}
-                    withPreview={true}
-                    singleImage={true}
-                />
+                <ImageLoader buttonText={`Choose ${type}`} onChange={onImageDrop} />
+                
                 <div className={styles.buttonsBox}>
                     <Button type='submit' action={updateImage} main>Update</Button>
                     <Button action={stopEdit}>Cancel</Button>

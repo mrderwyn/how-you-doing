@@ -49,6 +49,8 @@ const EditProfile = () => {
                 placeholder='input name'
                 submit={updateName}
                 defaultValue={self.name}
+                buttonText='Save'
+                main
             />
         </div>
         <div className={styles.optionBox}>
@@ -57,6 +59,8 @@ const EditProfile = () => {
                 placeholder='input description'
                 submit={updateDescription}
                 defaultValue={self.description}
+                buttonText='Save'
+                main
             />
         </div>
         <div className={styles.optionBox}>

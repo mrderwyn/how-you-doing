@@ -18,7 +18,7 @@ const Button = ({ type = 'submit', children, action, data, icon, activated, main
     const clickHandler = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         action && action(data);
-    }, []);
+    }, [action]);
 
     const names = icon ? [styles.iconButton] : [styles.button];
     className && names.push(className);

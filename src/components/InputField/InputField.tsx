@@ -10,9 +10,10 @@ type InputFieldProps = {
     autocomplete?: boolean,
     buttonText?: string,
     defaultValue?: string,
+    main?: boolean
 };
 
-const InputField = ({ placeholder, submit, clearAfter, autocomplete, buttonText='Input', defaultValue='' }: InputFieldProps) => {
+const InputField = ({ placeholder, submit, clearAfter, autocomplete, buttonText='Input', defaultValue='', main }: InputFieldProps) => {
     const autoCompleteValue = !!autocomplete ? 'on' : 'off';
 
     const [value, setValue] = useState(defaultValue);
@@ -33,7 +34,7 @@ const InputField = ({ placeholder, submit, clearAfter, autocomplete, buttonText=
     return (
         <form className={styles.form} onSubmit={submitHandler} autoComplete={autoCompleteValue}>
             <input className={styles.input} type='text' placeholder={placeholder} onChange={changeHandler} value={value} />
-            <Button type='submit' action={submitHandler}>{buttonText}</Button>
+            <Button type='submit' action={submitHandler} main={main}>{buttonText}</Button>
         </form>
     );
 };

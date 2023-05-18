@@ -8,10 +8,13 @@ import Button from '../Button/Button';
 
 import { auth } from '../../firebase/firebase';
 
+import MainIcon from './res/main-icon.png';
 import styles from './Signup.module.css';
+import Loader from '../Loader/Loader';
 
 const Signup = () => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     const [id, setId] = useState('');
     const idRef = useRef(id);
@@ -62,12 +65,19 @@ const Signup = () => {
             return;
         }
 
+        setLoading(true);
         await createUserWithEmailAndPassword(auth, emailRef.current, passwordRef.current)
             .then((userCredential) => {
-                createUser(idRef.current, emailRef.current);
-                navigate('/login');
+                return createUser(idRef.current, emailRef.current);
+            })
+            .then((result) => {
+                setLoading(false);
+                if (result) {
+                    navigate('/');
+                }
             })
             .catch((error) => {
+                setLoading(false);
                 if (error.code === 'auth/invalid-email') {
                     setEmailErr('invalid email');
                     return;
@@ -90,6 +100,11 @@ const Signup = () => {
     return (
         <main className={styles.container}>
             <div className={styles.content}>
+                <img src={MainIcon} alt='' className={styles.icon} />
+                <header className={styles.header}>
+                    How You Doing
+                </header>
+                <div className={styles.main}>
                         <p>Please Sign Up</p>
                         <form>
                             <div className={styles.formItem}>
@@ -125,12 +140,15 @@ const Signup = () => {
                                     placeholder='Password' />
                                 {passwordErr !== '' && <p className={styles.error}>{passwordErr}</p>}
                             </div>
-                            <Button type='submit' action={onSubmit}>Sign up</Button>
+                            { loading
+                                ? <Loader />
+                                : <Button type='submit' action={onSubmit}>Sign up</Button>}
                         </form>
                         <p>
                             Already have an account?{' '}
                             <NavLink to='/login'>Sign in</NavLink>
                         </p>
+                </div>
             </div>
         </main>
     );

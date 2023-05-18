@@ -14,7 +14,7 @@ const SearchByTagBar = ({ submit, tags }: SearchByTagBarPropsType) => {
     return (
         <div className={styles.container}>
             <div className={styles.searchBar}>
-                <InputField placeholder='input tag' submit={submit} buttonText='Submit' />    
+                <InputField placeholder='input tag' submit={submit} buttonText='Submit' main />    
             </div>
             <p>or select tag</p>
             <TagsContainer tags={tags} action={submit} />

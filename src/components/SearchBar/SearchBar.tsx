@@ -17,6 +17,16 @@ const getSelectedFromQueryType = (t: string | null) => {
     }
 }
 
+const getSearchTagDescription = (type: string | null, search: string | null) => {
+    if (type !== 't' || search === null || search === '') {
+        return false;
+    }
+
+    return <p className={styles.searchDescription}>
+        Posts with <span className={styles.searchKeyword}>{search}</span> tag
+    </p>
+}
+
 const popularTags = ['art', 'photo', 'city', 'people', 'history', 'nature', 'sculpture'];
 
 type SearchBarPropsType = {
@@ -36,7 +46,7 @@ const SearchBar = ({ withoutFollowing = false }: SearchBarPropsType) => {
     const selectedRef = useRef(selected);
     selectedRef.current = selected;
 
-    if (selectedRef.current !== getSelectedFromQueryType(srh.get('t'))) {
+    if (selectedRef.current !== getSelectedFromQueryType(srh.get('t')) && getSelectedFromQueryType(srh.get('t')) === 'By tag') {
         setSelected(getSelectedFromQueryType(srh.get('t')));
     }
 
@@ -64,6 +74,7 @@ const SearchBar = ({ withoutFollowing = false }: SearchBarPropsType) => {
 
 
     return (
+        <>
         <div className={styles.container}>
             <div className={styles.buttonsContainer}>
                 <Button data='All' action={changeSelection} activated={selected === 'All'}>All</Button>
@@ -73,6 +84,8 @@ const SearchBar = ({ withoutFollowing = false }: SearchBarPropsType) => {
             </div>
             {selected === 'By tag' && <SearchByTagBar tags={popularTags} submit={submitTag}/>}
         </div>
+            {getSearchTagDescription(srh.get('t'), srh.get('s'))}
+        </>
     );
 };
 

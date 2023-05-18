@@ -38,9 +38,12 @@ const postsSlice = createSlice({
         },
         addPostsToEnd: (state, action) => {
             if (state.posts === null) {
+                console.log('INFINITY addToEnd is null');
                 return;
             }
 
+            
+            console.log('INFINITY addToEnd', action.payload);
             state.posts = [
                 ...state.posts,
                 ...action.payload.posts

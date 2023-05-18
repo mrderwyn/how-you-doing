@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../Button/Button';
 
 import styles from './NotFound.module.css';
-import searchIcon from './res/search.png';
+import searchIcon from './res/purple-search.png';
 
 const NotFound = ({ text }: any) => {
     const navigate = useNavigate();

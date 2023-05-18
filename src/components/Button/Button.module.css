@@ -27,26 +27,34 @@
 }
 
 .icon-send {
-    background: url('res/send.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .icon-hamburger {
-    background: url('res/hamburger.svg');
+    background: url('res/hamburger.svg');                                                                                                                                                                                            
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    opacity: 40%;
+    filter: var(--primary-dark-filter);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 }
 
-@media only screen and (min-width: 320px) and (max-width: 600px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .button {
+        width: 70px;
+        
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 600px) {
     .button {
         width: 90px;
     }
 }
 
-@media only screen and (min-width: 601px) and (max-width: 800px) {
+@media only screen and (min-width: 600px) and (max-width: 800px) {
     .button {
         width: 90px;
     }

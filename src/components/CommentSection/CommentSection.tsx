@@ -28,7 +28,7 @@ const CommentSection = () => {
     return (
         <div className={styles.container}>
             <div className={styles.newCommentForm}>
-                <InputField placeholder='leave comment' clearAfter buttonText='Send' submit={sendCommentHandler} />
+                <InputField placeholder='leave comment' clearAfter buttonText='Send' main submit={sendCommentHandler} />
             </div>
             <div className={styles.commentsSection}>
                 {comments.length === 0

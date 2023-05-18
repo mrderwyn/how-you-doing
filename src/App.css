@@ -1,5 +1,6 @@
 :root {
   --primary-dark: #006b7d;
+  --primary-dark-filter: invert(28%) sepia(100%) saturate(456%) hue-rotate(141deg) brightness(99%) contrast(101%);
   --primary-main: #00d5fa;
   --primary-light: #e6fbff;
 
@@ -90,6 +91,12 @@
 
 /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
 
+/*@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .MenuContainer {
+
+  }
+}*/
+
 @media only screen and (min-width: 320px) and (max-width: 600px) {
   .MenuToggleButton {
     display: block;
@@ -102,30 +109,36 @@
 
   .MenuContainer {
     transform: translateX(-15rem);
-    flex-shrink: 0;
   }
 
   .MainContainer {
     margin: 0;
-    transform: translateX(-7rem);
-    flex-shrink: 1;
+    /*transform: translateX(-7rem);*/
+    transform: translateX(-85px);
+    flex: none;
   }
 
   .Container-toggled .MenuContainer {
-    transform: translateX(6rem) translateY(5rem);
+    /*transform: translateX(6rem) translateY(5rem);*/
+    transform: translateX(0) translateY(0);
+    position: fixed;
+    left: 0;
+    top: 80px;
   }
 
   .Container-toggled .MainContainer {
     box-shadow: 20px -10px gray;
-    transform: rotateX(4deg) rotateY(60deg) rotateZ(4deg) 
-               translateY(5rem) translateX(-12rem);
+    /*transform: rotateX(4deg) rotateY(60deg)
+               translateY(5rem) translateX(5rem);*/
+    transform: rotateX(4deg) rotateY(60deg)
+               translateY(2rem) translateX(13rem);
     min-height: 600px;
   }
 }
 
 
 /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-@media only screen and (min-width: 601px) and (max-width: 800px) {
+@media only screen and (min-width: 600px) and (max-width: 800px) {
   .MenuContainer {
     max-width: 150px;
   }

@@ -53,11 +53,6 @@ const Menu = () => {
                     <NotificationButton />
                 </div>
             </NavLink>
-            <NavLink to='/edit' draggable='false'>
-                <p className={styles.item}>
-                    Edit
-                </p>
-            </NavLink>
             <a href="#" onClick={handleLogOut}>
                 <p className={styles.item}>
                     Log Out

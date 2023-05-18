@@ -23,7 +23,7 @@ const PostDetails = () => {
 
     return (
         <div className={styles.container}>
-            <FeedItem {...post} />
+            <FeedItem {...post} disableLink />
             <CommentSection />
         </div>
     );

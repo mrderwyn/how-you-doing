@@ -77,11 +77,9 @@ function App() {
       <Router>
         <div className='App'>
           <div className='Container'>
-              <div className='MainContainer'>
                 <Routes>
                   {unauthRoutes}
                 </Routes>
-              </div>
           </div>
         </div>
       </Router>

@@ -13,6 +13,7 @@ import { selfSelector } from '../../redux/selectors';
 import { uploadImage, createPost } from '../../services/firebaseService';
 import Loader from '../Loader/Loader';
 import scrollToTop from '../../helpers/scrollToTop';
+import ImageLoader from '../ImageLoader/ImageLoader';
 
 const PublishFeedForm = () => {
     const [tags, setTags] = useState([] as string[]);
@@ -59,20 +60,26 @@ const PublishFeedForm = () => {
         setTagsShown(false);
         scrollToTop();
     };
-    
+    /*
     const imageLoader = <>
         <ImageUploader
             fileContainerStyle={{margin: '0', backgroundColor: 'var(--background-default)', height: '100%'}}
             withIcon={iconShown}
-            withLabel={false}
             buttonText='Choose image'
             onChange={onDrop}
-            imgExtension={['.jpg', '.gif', '.png', '.gif']}
+            imgExtension={['.jpg', '.gif', '.png', '.jfif', '.jpeg']}
+            accept='image/*,.jfif'
+            label='Max file size: 5mb, accepted: jpeg|gif|jfif|png'
             maxFileSize={5242880}
             withPreview={true}
             singleImage={true}
         />
     </>
+    */
+
+    const imageLoader = <div className={styles.imageBox}>
+        <ImageLoader iconShown={iconShown} buttonText='Choose image' onChange={onDrop} />
+    </div>
     
 
     const tagsEditor = <div className={styles.tagSelector}>
@@ -89,7 +96,14 @@ const PublishFeedForm = () => {
     }, []);
 
     const tagsClickHandler = useCallback(() => {
-        setTagsShown(!tagsShownRef.current);
+        if (tagsShownRef.current) {
+            setTagsShown(false);
+            setTags([]);
+        }
+        else {
+            setTagsShown(true);
+        }
+        //setTagsShown(!tagsShownRef.current);
     }, []);
 
     const self = useSelector(selfSelector);

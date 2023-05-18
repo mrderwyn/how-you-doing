@@ -11,8 +11,6 @@
 }
 
 .optionBox {
-    border-top: 1px solid var(--neutral-medium);
-    border-bottom: 1px solid var(--neutral-medium);
     padding: 10px 20px;
     position: relative;
 }

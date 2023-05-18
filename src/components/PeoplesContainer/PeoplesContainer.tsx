@@ -40,7 +40,7 @@ const PeoplesContainer = () => {
 
     const creator = useCallback(({ id }: IdentityObject) => {
         return <FollowButton id={id} />;
-    }, [self]);
+    }, []);
 
     if (self === null || user === null){
         return <Loader />;
@@ -57,10 +57,10 @@ const PeoplesContainer = () => {
             </div>
             <div className={styles.content}>
                 {selected === 'Following' && (
-                    <UserList users={follow} creator={creator} />
+                    <UserList users={follow} type='follows' creator={creator} />
                 )}
                 {selected === 'Followers' && (
-                    <UserList users={followers} creator={creator} />
+                    <UserList users={followers} type='followers' creator={creator} />
                 )}
                 {selected === 'All' && (
                     <UserList users={all} creator={creator} />

@@ -3,16 +3,25 @@
     bottom: 5px;
 
     border-radius: 5px;
-    width: 100%;
+    padding: 0 5px 0 5px;
     height: 30px;
-    background-color: rgba(138, 130, 130, 0.2);
+    background-color: rgba(138, 130, 130, 0.5);
 
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
     color: var(--neutral-dark);
 }
 
 .scroll:hover {
-    background-color: rgba(138, 130, 130, 0.5);
-    color: var(--neutral-light);
+    background-color: var(--primary-dark);
+    opacity: 70%;
     cursor: pointer;
+}
+
+.scroll:hover .text {
+    color: var(--primary-light);
 }
