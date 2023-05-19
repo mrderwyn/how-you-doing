@@ -13,15 +13,11 @@
 }
 
 .text {
-    color: var(--neutral-dark);
+    color: var(--primary-light);
 }
 
 .scroll:hover {
     background-color: var(--primary-dark);
     opacity: 70%;
     cursor: pointer;
-}
-
-.scroll:hover .text {
-    color: var(--primary-light);
 }

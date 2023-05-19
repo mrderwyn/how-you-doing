@@ -37,10 +37,8 @@ const PublishFeedForm = () => {
     const imageRef = useRef(images);
     imageRef.current = images;
 
-    const [iconShown, setIconShown] = useState(true);
     const onDrop = useCallback((files: any, urls: any) => {
         setImages(files);
-        setIconShown(files.length === 0);
     }, []);
 
     const [imageShown, setImageShown] = useState(false);
@@ -55,14 +53,13 @@ const PublishFeedForm = () => {
         setImages([]);
         setText('');
         setTags([]);
-        setIconShown(true);
         setImageShown(false);
         setTagsShown(false);
         scrollToTop();
     };
 
     const imageLoader = <div className={styles.imageBox}>
-        <ImageLoader iconShown={iconShown} buttonText='Choose image' onChange={onDrop} />
+        <ImageLoader buttonText='Choose image' onChange={onDrop} />
     </div>
     
 

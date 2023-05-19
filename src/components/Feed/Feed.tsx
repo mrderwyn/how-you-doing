@@ -44,7 +44,7 @@ const Feed = () => {
                     dataLength={items?.length ?? 0}
                     next={fetchNext}
                     hasMore={hasMore}
-                    loader={<p className={styles.infoText}>loading posts ...</p>}
+                    loader={<></>}
                     endMessage={<p className={styles.infoText}>no more posts ...</p>}
                 >
                     <Masonry className={styles.masonryFeed} breakpointCols={breakpoints} columnClassName={styles.masonryColumn}>
