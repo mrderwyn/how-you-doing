@@ -7,7 +7,6 @@ import SearchBar from '../components/SearchBar/SearchBar';
 import UserProfile from '../components/UserProfile/UserProfile';
 
 import { useDispatch, useSelector } from 'react-redux';
-//import { fetchProfile, fetchPosts, stopListenProfile } from '../redux/mainSlice';
 import { profileLoadingSelector, profileSelector, selfSelector } from '../redux/selectors';
 import { fetchProfile, stopListenProfile } from '../redux/actions/profileActions';
 import { fetchPosts, stopListenPosts  } from '../redux/actions/postsActions';

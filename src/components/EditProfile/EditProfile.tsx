@@ -2,7 +2,6 @@ import React, { useCallback, useRef, useState } from 'react';
 import ImageUploader from 'react-images-upload';
 import { useDispatch, useSelector } from 'react-redux';
 
-//import { updateUserInfo } from '../../redux/mainSlice';
 import { selfSelector } from '../../redux/selectors';
 
 import Button from '../Button/Button';
@@ -85,30 +84,3 @@ const EditProfile = () => {
 };
 
 export default EditProfile;
-
-/*
-<div>
-            <ImageUploader
-                fileContainerStyle={{backgroundColor: 'var(--background-default)'}}
-                buttonText='Choose avatar'
-                onChange={onAvatarDrop}
-                imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                maxFileSize={5242880}
-                withPreview={true}
-                singleImage={true}
-            />;
-            <Button type='submit' action={updateAvatar}>Update</Button>
-        </div>
-        <div>
-            <ImageUploader
-                fileContainerStyle={{backgroundColor: 'var(--background-default)'}}
-                buttonText='Choose background'
-                onChange={onBackgroundDrop}
-                imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                maxFileSize={5242880}
-                withPreview={true}
-                singleImage={true}
-            />;
-            <Button type='submit' action={updateBackground}>Update</Button>
-        </div>
-*/

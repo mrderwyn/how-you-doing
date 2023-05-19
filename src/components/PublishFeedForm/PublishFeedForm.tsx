@@ -60,22 +60,6 @@ const PublishFeedForm = () => {
         setTagsShown(false);
         scrollToTop();
     };
-    /*
-    const imageLoader = <>
-        <ImageUploader
-            fileContainerStyle={{margin: '0', backgroundColor: 'var(--background-default)', height: '100%'}}
-            withIcon={iconShown}
-            buttonText='Choose image'
-            onChange={onDrop}
-            imgExtension={['.jpg', '.gif', '.png', '.jfif', '.jpeg']}
-            accept='image/*,.jfif'
-            label='Max file size: 5mb, accepted: jpeg|gif|jfif|png'
-            maxFileSize={5242880}
-            withPreview={true}
-            singleImage={true}
-        />
-    </>
-    */
 
     const imageLoader = <div className={styles.imageBox}>
         <ImageLoader iconShown={iconShown} buttonText='Choose image' onChange={onDrop} />
@@ -103,7 +87,6 @@ const PublishFeedForm = () => {
         else {
             setTagsShown(true);
         }
-        //setTagsShown(!tagsShownRef.current);
     }, []);
 
     const self = useSelector(selfSelector);
@@ -125,9 +108,6 @@ const PublishFeedForm = () => {
                 if (postId) {
                     clearHandler();
                 }
-            })
-            .catch((error) => {
-                console.log('error while loading post', error);
             });
     }, []);
 

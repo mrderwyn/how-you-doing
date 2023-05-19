@@ -24,7 +24,6 @@ const PeoplesContainer = () => {
     const selectedRef = useRef(selected);
     selectedRef.current = selected;
 
-    //temporary
     const [all, setAll] = useState([] as LightUserInfoType[]);
     useEffect(() => {
         getAllUsers().then(users => {

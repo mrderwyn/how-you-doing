@@ -1,5 +1,5 @@
 import { PostType } from "../../types";
-import { addPostsToEnd, setPosts, updatePosts } from "../slices/postsSlice/slice";
+import { setPosts, updatePosts } from "../slices/postsSlice/slice";
 import { ArgumentType } from "../types";
 
 let clearPostsListener = () => {};
@@ -16,8 +16,6 @@ export const fetchPosts = (from: any, query: any, promt: any) => async (dispatch
             removePost: (post: PostType) => {}
         }
     );
-
-    console.log('fetched posts', data, unsubscribe, next);
 
     const generateNext = () => {
         let hasNext = true;

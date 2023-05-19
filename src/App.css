@@ -91,12 +91,6 @@
 
 /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
 
-/*@media only screen and (min-width: 320px) and (max-width: 480px) {
-  .MenuContainer {
-
-  }
-}*/
-
 @media only screen and (min-width: 320px) and (max-width: 600px) {
   .MenuToggleButton {
     display: block;
@@ -113,13 +107,11 @@
 
   .MainContainer {
     margin: 0;
-    /*transform: translateX(-7rem);*/
     transform: translateX(-85px);
     flex: none;
   }
 
   .Container-toggled .MenuContainer {
-    /*transform: translateX(6rem) translateY(5rem);*/
     transform: translateX(0) translateY(0);
     position: fixed;
     left: 0;
@@ -128,8 +120,6 @@
 
   .Container-toggled .MainContainer {
     box-shadow: 20px -10px gray;
-    /*transform: rotateX(4deg) rotateY(60deg)
-               translateY(5rem) translateX(5rem);*/
     transform: rotateX(4deg) rotateY(60deg)
                translateY(2rem) translateX(13rem);
     min-height: 600px;

@@ -4,7 +4,6 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { auth } from '../../firebase/firebase';
-
 import MainIcon from './res/main-icon.png';
 import styles from './Login.module.css';
 import Button from '../Button/Button';

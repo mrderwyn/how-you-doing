@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-//import { readAllNotifications } from '../../redux/mainSlice';
 import { notificationsSelector } from '../../redux/selectors';
 import { readAllNotifications } from '../../redux/slices/notificationsSlice/slice';
 import Loader from '../Loader/Loader';

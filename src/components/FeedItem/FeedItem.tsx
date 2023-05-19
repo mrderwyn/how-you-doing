@@ -54,19 +54,5 @@ const FeedItem = ({id, user, date, picture, text, tags, disableLink}: FeedItemPr
         </div>
     );
 };
-/*
-
-                    <NavLink to={`/post/${id}`} draggable='false' className={styles.link}>
-                        <div className={styles.content}>
-                            {picture && 
-                                <div className={styles.contentPicture}>
-                                    <img src={picture} alt='picture' />
-                                </div>}
-                            <p className={styles.contentText}>
-                                {text}
-                            </p>
-                        </div>
-                    </NavLink>
-*/
 
 export default FeedItem;

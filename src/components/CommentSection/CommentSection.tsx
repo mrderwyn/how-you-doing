@@ -10,12 +10,10 @@ import styles from './CommentSection.module.css';
 import Loader from '../Loader/Loader';
 import InputField from '../InputField/InputField';
 import { sendComment } from '../../redux/actions/postDetailsActions';
-//import { sendComment, setPostDetails } from '../../redux/mainSlice';
 
 const CommentSection = () => {
     const comments = useSelector(commentsSelector);
     const dispatch = useDispatch();
-    //dispatch(setPostDetails({post: null, comments: []}) as any);
 
     const sendCommentHandler = useCallback((value: string) => {
         dispatch(sendComment(value) as any);

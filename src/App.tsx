@@ -52,7 +52,6 @@ function App() {
   const menuShownRef = useRef(menuShown);
   menuShownRef.current = menuShown;
   const toggleMenuShown = useCallback(() => {
-    console.log('clicked', menuShownRef.current);
     setMenuShown(!menuShownRef.current);
   }, []);
 

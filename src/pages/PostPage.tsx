@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-//import { fetchPostDetails, stopListeningComments } from '../redux/mainSlice';
 import { fetchPostDetails, stopListeningComments } from '../redux/actions/postDetailsActions';
 
 import PostDetails from '../components/PostDetails/PostDetails';
@@ -15,8 +14,6 @@ const PeoplesPage = () => {
         dispatch(fetchPostDetails(id) as any);
         return () => stopListeningComments();
     }, [id]);
-
-    //dispatch(fetchPostDetails(id) as any);
 
     return (
         <PostDetails />

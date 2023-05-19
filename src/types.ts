@@ -8,7 +8,6 @@ export type CommentType = {
 export type DetailedUserInfoType = LightUserInfoType & {
     background: string,
     description: string,
-    followedBy?: boolean
 }
 
 export type FullUserInfoType = DetailedUserInfoType & {

@@ -10,7 +10,7 @@ export const fetchProfile = (id: any) => async (dispatch: any, getState: any, ex
     }
 
     const { serviceApi } = extraArgument;
-    const answer = await serviceApi.getUserByIdWithListeners(id, getState().self.self.id, {
+    const answer = await serviceApi.getUserByIdWithListeners(id, {
         addFollower: (user: any) => {
             dispatch(updateProfilePeoples({ type: 'addFollower', user }));
         },

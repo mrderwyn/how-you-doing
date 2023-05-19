@@ -9,13 +9,13 @@ import styles from './NotificationItem.module.css';
 const descByType = (type: string) => {
     switch (type) {
         case 'newpost':
-            return 'published a new post. Take a look';
+            return 'published a new post';
         case 'newfollow':
             return 'started following you !';
         case 'unfollow':
             return 'stopped following you :(';
         case 'newcomment':
-            return 'left a comment on your post. Take a look';
+            return 'left a comment on your post';
         default:
             return 'whoops. something wrong';
     }

@@ -9,7 +9,6 @@ import { selfSelector } from '../../redux/selectors';
 import UserCard from '../UserCard/UserCard';
 
 import styles from './Menu.module.css';
-//import { setSelf } from '../../redux/mainSlice';
 import NotificationButton from '../NotificationButton/NotificationButton';
 import { logOut } from '../../redux/slices/selfSlice/slice';
 
@@ -24,9 +23,6 @@ const Menu = () => {
             .then(() => {
                 dispatch(logOut({}));
                 navigate('/');
-            })
-            .catch((error) => {
-                console.log('something wrong', error);
             });
     }
 

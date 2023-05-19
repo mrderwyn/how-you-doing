@@ -15,11 +15,9 @@ import
     updateDoc,
     serverTimestamp,
     orderBy,
-    Timestamp,
     DocumentData,
     QuerySnapshot,
     QueryDocumentSnapshot,
-    DocumentReference,
     limit,
     QueryOrderByConstraint,
     QueryFieldFilterConstraint,
@@ -52,14 +50,14 @@ export const getUserByEmail = async (email: string) => {
     } as DetailedUserInfoType;
 }
 
-export const getUserById = async (id: string/*, self: string | undefined*/) => {
+export const getUserById = async (id: string) => {
     const user = await getDoc(doc(firestore, 'users', id));
     if (!user.exists()) {
         return null;
     }
 
-    const follow = await getFollowingList(id/*, self*/);
-    const followers = await getFollowersList(id/*, self*/);
+    const follow = await getFollowingList(id);
+    const followers = await getFollowersList(id);
 
     const result: FullUserInfoType = {
         id: user.id,
@@ -71,14 +69,14 @@ export const getUserById = async (id: string/*, self: string | undefined*/) => {
     return result;
 }
 
-export const getUserByIdWithListeners = async (id: string, self: string, listeners: any) => {
+export const getUserByIdWithListeners = async (id: string, listeners: any) => {
     const user = await getDoc(doc(firestore, 'users', id));
     if (!user.exists()) {
         return null;
     }
 
-    const [follow, unsubscribeFollow] = await getFollowingListWithListener(id, self, listeners.addFollower, listeners.removeFollower);
-    const [followers, unsubscribeFollowers] = await getFollowersListWithListener(id, self, listeners.addFollowed, listeners.removeFollowed);
+    const [follow, unsubscribeFollow] = await getFollowingListWithListener(id, listeners.addFollower, listeners.removeFollower);
+    const [followers, unsubscribeFollowers] = await getFollowersListWithListener(id, listeners.addFollowed, listeners.removeFollowed);
 
     const result: FullUserInfoType = {
         id: user.id,
@@ -86,10 +84,6 @@ export const getUserByIdWithListeners = async (id: string, self: string, listene
         followers,
         ...user.data() as FirestoreUserDataType,
     };
-
-    if (self !== undefined) {
-        result.followedBy = (await getDoc(relationDoc(id, self))).exists();
-    }
 
     return [result, () => {
         (unsubscribeFollow as any)();
@@ -132,20 +126,11 @@ export const createUser = async (id: string, email: string) => {
     };
 
     try {
-        let result: boolean = false;
-        await setDoc(user, data)
-            .then(res => {
-                result = true;
-            })
-            .catch(err => {
-                console.log(err);
-                result = false;
-            });
-
-        return result;
+        return await setDoc(user, data)
+            .then(res => true)
+            .catch(err => false);
     }
     catch (err) {
-        console.log(err);
         return false;
     }
 }
@@ -172,10 +157,7 @@ export const addFollowRelation = async (followed: string, follower: string) => {
             sendNotification('follow', follower, followed);
             return true;
         })
-        .catch(err => {
-            console.log(err);
-            return false;
-        });
+        .catch(err => false);
 }
 
 export const removeFollowRelation = async (followed: string, follower: string) => {
@@ -203,7 +185,7 @@ export const getFollowersList = async (id: string) => {
     return await Promise.all(promises);
 }
 
-export const getFollowersListWithListener = async (id: string, self: string, onAdd: any, onRemove: any) => {
+export const getFollowersListWithListener = async (id: string, onAdd: any, onRemove: any) => {
     const relations = collection(firestore, 'relations');
     const followersQuery = query(relations, where('followed', '==', userDoc(id)));
 
@@ -235,7 +217,7 @@ export const getFollowingList = async (id: string) => {
     return await Promise.all(promises);
 }
 
-export const getFollowingListWithListener = async (id: string, self: string, onAdd: any, onRemove: any) => {
+export const getFollowingListWithListener = async (id: string, onAdd: any, onRemove: any) => {
     const relations = collection(firestore, 'relations');
     const followersQuery = query(relations, where('follower', '==', userDoc(id)));
 
@@ -270,7 +252,6 @@ export const createPost = async (userId: string, picture: string, text: string, 
         return postRef.id;
     }
     catch (err) {
-        console.log('error in adding post', err);
         return null;
     }
 }
@@ -315,13 +296,10 @@ export const queryPostsWithListenerAndEndlessScroll = async (authors: string[], 
     const posts = collection(firestore, 'posts');
     const queryConstraints: (QueryOrderByConstraint | QueryFieldFilterConstraint)[] = [];
 
-    console.log('query posts', authors, type, promt );
-
     queryConstraints.push(orderBy('createdAt', 'desc'));
     if (type === 'f') {
         const followersQuery = query(collection(firestore, 'relations'), where('follower', '==', userDoc(authors[0])));
         const follows = (await getDocs(followersQuery)).docs.map(d => d.data().followed);
-        console.log('query by follows', follows);
         if (follows.length > 0) {
             queryConstraints.push(where('author', 'in', follows));
         }
@@ -336,9 +314,6 @@ export const queryPostsWithListenerAndEndlessScroll = async (authors: string[], 
     if (type === 't') {
         queryConstraints.push(where('tags', 'array-contains', promt));
     }
-    else if (type === 's') {
-        queryConstraints.push(where('text', 'array-contains', promt)); // НЕ РАБОТАЕТ В FIRESTORE
-    }
 
     let mainQuery = query(posts, ...queryConstraints, limit(10));
     const mainSnap = await getDocs(mainQuery);
@@ -346,7 +321,6 @@ export const queryPostsWithListenerAndEndlessScroll = async (authors: string[], 
     const promises: Promise<PostType | null>[] = [];
     mainSnap.forEach(d => promises.push(getPostById(d.id)));
     const result = (await Promise.all(promises)).filter(p => p !== null) as PostType[];
-    console.log('RESULT', result);
 
     const createNextCallback = () => {
         let lastReaded = mainSnap.docs[mainSnap.docs.length - 1];
@@ -423,7 +397,6 @@ export const createComment = async (postId: string, userId: string, text: string
         } as CommentType;
     }
     catch (err) {
-        console.log('error in adding comment', err);
         return null;
     }
 }
@@ -556,7 +529,6 @@ const getNotificationByDocument: (document: QueryDocumentSnapshot<DocumentData>)
         return null;
     }
 
-    // 'createpost' 'follow' 'unfollow' 'createcomment'
     switch (data.action) {
         case 'createpost':
             return {
@@ -633,7 +605,6 @@ export const uploadImage = (image: any, folder: string, generateId?: boolean | u
 
             },
             (error) => {
-                console.log('error', error);
                 reject(error);
             },
             () => {
@@ -648,7 +619,7 @@ const userDoc = (id: string) => doc(firestore, 'users', id);
 const relationDoc = (followed: string, follower: string) => doc(firestore, 'relations', relationIdGenerator(followed, follower));
 const relationIdGenerator = (followed: string, follower: string) => `${followed}<${follower}`;
 
-export default {
+const service = {
     uploadImage,
     getPostById,
     getComments,
@@ -671,6 +642,5 @@ export default {
     getUserByEmail,
     getCommentsWithListener,
     getNotificationsWithListener,
-
-    //filterPostsTest
 };
+export default service;

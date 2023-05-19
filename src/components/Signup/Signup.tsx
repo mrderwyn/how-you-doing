@@ -92,8 +92,6 @@ const Signup = () => {
                     setPasswordErr('weak password');
                     return;
                 }
-
-                console.log(error.code, error.message);
             });
     };
 

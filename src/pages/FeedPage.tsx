@@ -8,9 +8,6 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { fetchPosts, stopListenPosts } from '../redux/actions/postsActions';
-import Button from '../components/Button/Button';
-
-//import { fetchPosts, stopListenPosts } from '../redux/mainSlice';
 
 const FeedPage = () => {
     const location = useLocation();
@@ -18,7 +15,6 @@ const FeedPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        //dispatch(fetchPosts(location.pathname, query.get('t'), query.get('s')) as any);
         dispatch(fetchPosts(location.pathname, query.get('t'), query.get('s')) as any);
         return () => stopListenPosts();
     }, [location]);
