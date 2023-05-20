@@ -1,17 +1,21 @@
-import React, { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from '../Button/Button';
+import React, { useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Button from '../Button/Button'
 
-import styles from './NotFound.module.css';
-import searchIcon from './res/purple-search.png';
+import styles from './NotFound.module.css'
+import searchIcon from './res/purple-search.png'
 
-const NotFound = ({ text }: any) => {
-    const navigate = useNavigate();
-    const backToHome = useCallback(() => {
-        navigate('/');
-    }, []);
+interface NotFoundPropsType {
+  text: string
+}
 
-    return (
+const NotFound: React.FC<NotFoundPropsType> = ({ text }: NotFoundPropsType) => {
+  const navigate = useNavigate()
+  const backToHome = useCallback(() => {
+    navigate('/')
+  }, [navigate])
+
+  return (
         <div className={styles.container}>
             <div className={styles.content}>
                 <img className={styles.icon} src={searchIcon} alt='Search' />
@@ -20,7 +24,7 @@ const NotFound = ({ text }: any) => {
                 <Button action={backToHome} main>Back to home</Button>
             </div>
         </div>
-    )
+  )
 }
 
-export default NotFound;
+export default NotFound

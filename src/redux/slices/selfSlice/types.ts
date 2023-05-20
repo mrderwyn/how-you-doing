@@ -1,6 +1,6 @@
-import { DetailedUserInfoType } from "../../../types";
+import { type DetailedUserInfoType } from '../../../types'
 
-export type SelfStateType = {
-    self: DetailedUserInfoType | null;
-    token: string;
+export interface SelfStateType {
+  self: DetailedUserInfoType | null
+  token: string
 }

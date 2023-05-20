@@ -1,22 +1,22 @@
-import React, { ReactNode } from 'react';
-import { LightUserInfoType } from '../../types';
+import React, { type ReactNode } from 'react'
+import { type LightUserInfoType } from '../../types'
 
-import UserCard from '../UserCard/UserCard';
+import UserCard from '../UserCard/UserCard'
 
-import styles from './UserListItem.module.css';
+import styles from './UserListItem.module.css'
 
-type UserListItemPropsType = {
-    user: LightUserInfoType,
-    options: ReactNode,
+interface UserListItemPropsType {
+  user: LightUserInfoType
+  options: ReactNode
 }
 
-const UserListItem = ({ user, options }: UserListItemPropsType) => {
-    return (
+const UserListItem: React.FC<UserListItemPropsType> = ({ user, options }: UserListItemPropsType) => {
+  return (
         <div className={styles.item}>
             <UserCard {...user} />
             {options}
         </div>
-    );
-};
+  )
+}
 
-export default UserListItem;
+export default UserListItem

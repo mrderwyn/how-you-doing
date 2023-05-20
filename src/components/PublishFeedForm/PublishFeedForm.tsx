@@ -1,118 +1,118 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react';
-import ImageUploader from 'react-images-upload';
+import React, { useState, useCallback, useRef } from 'react'
 
-import UserCard from '../UserCard/UserCard';
-import InputField from '../InputField/InputField';
-import TagsContainer from '../TagsContainer/TagsContainer';
-import Button from '../Button/Button';
+import UserCard from '../UserCard/UserCard'
+import InputField from '../InputField/InputField'
+import TagsContainer from '../TagsContainer/TagsContainer'
+import Button from '../Button/Button'
 
-import styles from './PublishFeedForm.module.css';
-import { useSelector } from 'react-redux';
-import { selfSelector } from '../../redux/selectors';
+import styles from './PublishFeedForm.module.css'
+import { useSelector } from 'react-redux'
+import { selfSelector } from '../../redux/selectors'
 
-import { uploadImage, createPost } from '../../services/firebaseService';
-import Loader from '../Loader/Loader';
-import scrollToTop from '../../helpers/scrollToTop';
-import ImageLoader from '../ImageLoader/ImageLoader';
+import { uploadImage, createPost } from '../../services/firebaseService'
+import Loader from '../Loader/Loader'
+import scrollToTop from '../../utils/scrollToTop'
+import ImageLoader from '../ImageLoader/ImageLoader'
+import { postIsValid } from '../../utils/validators'
 
-const PublishFeedForm = () => {
-    const [tags, setTags] = useState([] as string[]);
+const PublishFeedForm: React.FC = () => {
+  const [tags, setTags] = useState([] as string[])
 
-    const tagsRef = useRef(tags);
-    tagsRef.current = tags;
+  const tagsRef = useRef(tags)
+  tagsRef.current = tags
 
-    const removeTag = useCallback((tag: string) => {
-        setTags(tagsRef.current.filter(t => t !== tag));
-    }, []);
+  const removeTag = useCallback((tag: string) => {
+    setTags(tagsRef.current.filter(t => t !== tag))
+  }, [])
 
-    const addTag = useCallback((tag: string) => {
-        setTags([...tagsRef.current, tag]);
-    }, []);
+  const addTag = useCallback((tag: string) => {
+    const trimmed = tag.trim()
+    const regex = new RegExp(`^${trimmed}$`, 'i')
+    if (tagsRef.current.find(t => t.search(regex) !== -1)) {
+      return
+    }
 
-    const [text, setText] = useState('');
-    const textRef = useRef(text);
-    textRef.current = text;
+    setTags([...tagsRef.current, trimmed])
+  }, [])
 
-    const [images, setImages] = useState([] as any[]);
-    const imageRef = useRef(images);
-    imageRef.current = images;
+  const [text, setText] = useState('')
+  const textRef = useRef(text)
+  textRef.current = text
 
-    const onDrop = useCallback((files: any, urls: any) => {
-        setImages(files);
-    }, []);
+  const [images, setImages] = useState([] as any[])
+  const imageRef = useRef(images)
+  imageRef.current = images
 
-    const [imageShown, setImageShown] = useState(false);
-    const imageShownRef = useRef(imageShown);
-    imageShownRef.current = imageShown;
+  const onDrop = useCallback((files: any, urls: any) => {
+    setImages(files)
+  }, [])
 
-    const [tagsShown, setTagsShown] = useState(false);
-    const tagsShownRef = useRef(tagsShown);
-    tagsShownRef.current = tagsShown;
-    
-    const clearHandler = () => {
-        setImages([]);
-        setText('');
-        setTags([]);
-        setImageShown(false);
-        setTagsShown(false);
-        scrollToTop();
-    };
+  const [imageShown, setImageShown] = useState(false)
+  const imageShownRef = useRef(imageShown)
+  imageShownRef.current = imageShown
 
-    const imageLoader = <div className={styles.imageBox}>
+  const [tagsShown, setTagsShown] = useState(false)
+  const tagsShownRef = useRef(tagsShown)
+  tagsShownRef.current = tagsShown
+
+  const clearHandler = () => {
+    setImages([])
+    setText('')
+    setTags([])
+    setImageShown(false)
+    setTagsShown(false)
+    scrollToTop()
+  }
+
+  const imageLoader = <div className={styles.imageBox}>
         <ImageLoader buttonText='Choose image' onChange={onDrop} />
     </div>
-    
 
-    const tagsEditor = <div className={styles.tagSelector}>
+  const tagsEditor = <div className={styles.tagSelector}>
         <div className={styles.inputField}>
             <InputField placeholder='input tag' submit={addTag} clearAfter buttonText='Add' />
         </div>
         <TagsContainer tags={tags} action={removeTag} />
-    </div>;
+    </div>
 
-    
+  const imageClickHandler = useCallback(() => {
+    setImageShown(!imageShownRef.current)
+  }, [])
 
-    const imageClickHandler = useCallback(() => {
-        setImageShown(!imageShownRef.current);
-    }, []);
+  const tagsClickHandler = useCallback(() => {
+    if (tagsShownRef.current) {
+      setTagsShown(false)
+      setTags([])
+    } else {
+      setTagsShown(true)
+    }
+  }, [])
 
-    const tagsClickHandler = useCallback(() => {
-        if (tagsShownRef.current) {
-            setTagsShown(false);
-            setTags([]);
-        }
-        else {
-            setTagsShown(true);
-        }
-    }, []);
+  const self = useSelector(selfSelector)
 
-    const self = useSelector(selfSelector);
+  const textChanged = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value)
+  }, [])
 
-    
-
-    const textChanged = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-        setText(event.target.value);
-    }, []);
-
-    const publishFeed = useCallback(() => {
-        if (imageRef.current.length !== 1) {
-            return;
-        }
-
-        uploadImage(imageRef.current[0], 'images/posts/', true)
-            .then((imageUrl) => createPost(self?.id ?? '', imageUrl, textRef.current, tagsRef.current))
-            .then((postId) => {
-                if (postId) {
-                    clearHandler();
-                }
-            });
-    }, []);
-
-    if (self === null) {
-        return <Loader />
+  const publishFeed = useCallback(() => {
+    if (!postIsValid(textRef.current, imageRef.current)) {
+      return
     }
 
-    return (
+    uploadImage(imageRef.current[0], 'images/posts/', true)
+      .then(async (imageUrl) => await createPost(self?.id ?? '', imageUrl, textRef.current, tagsRef.current))
+      .then((postId) => {
+        if (postId) {
+          clearHandler()
+        }
+      })
+  }, [])
+
+  if (self === null) {
+    return <Loader />
+  }
+
+  return (
         <div className={styles.container}>
             <div className={styles.mainBox}>
                     <UserCard avatar={self.avatar} id={self.id} />
@@ -128,7 +128,7 @@ const PublishFeedForm = () => {
                     {tagsShownRef.current && tagsEditor}
                 </div>}
         </div>
-    );
-};
+  )
+}
 
-export default PublishFeedForm;
+export default PublishFeedForm

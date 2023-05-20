@@ -1,22 +1,21 @@
-import React from 'react';
+import React from 'react'
 
-import { NavLink } from 'react-router-dom';
-import scroll from '../../helpers/scrollToTop';
-import { LightUserInfoType } from '../../types';
+import { NavLink } from 'react-router-dom'
+import scroll from '../../utils/scrollToTop'
 
-import styles from './UserCard.module.css';
+import styles from './UserCard.module.css'
 
-type UserCardPropsType = {
-    id: string,
-    avatar: string,
-    name?: string,
-    onlyName?: boolean,
-};
+interface UserCardPropsType {
+  id: string
+  avatar: string
+  name?: string
+  onlyName?: boolean
+}
 
-const UserCard = ({ id, name, avatar, onlyName }: UserCardPropsType) => {
-    const containInfo = name && id;
-    
-    return (
+const UserCard: React.FC<UserCardPropsType> = ({ id, name, avatar, onlyName }: UserCardPropsType) => {
+  const containInfo = name && id
+
+  return (
         <NavLink
             onClick={scroll}
             to={`/profile/${id}`}
@@ -30,7 +29,7 @@ const UserCard = ({ id, name, avatar, onlyName }: UserCardPropsType) => {
                 </div>)}
             </div>
         </NavLink>
-    );
-};
+  )
+}
 
-export default UserCard;
+export default UserCard

@@ -1,30 +1,24 @@
-import { PostType, FullUserInfoType, CommentType, DetailedUserInfoType, LightUserInfoType, NotificationType } from '../types';
-import { FirestoreServiceType } from '../services/types';
-import { SelfStateType } from './slices/selfSlice/types';
-import { FollowSliceType } from './slices/followSlice/types';
-import { PostDetailsSliceType } from './slices/postDetailsSlice/types';
-import { ProfileSliceType } from './slices/profileSlice/types';
-import { PostsSliceType } from './slices/postsSlice/types';
-import { NotificationSliceType } from './slices/notificationsSlice/types';
+import { type FirestoreServiceType } from '../services/types'
+import { type SelfStateType } from './slices/selfSlice/types'
+import { type FollowSliceType } from './slices/followSlice/types'
+import { type PostDetailsSliceType } from './slices/postDetailsSlice/types'
+import { type ProfileSliceType } from './slices/profileSlice/types'
+import { type PostsSliceType } from './slices/postsSlice/types'
+import { type NotificationSliceType } from './slices/notificationsSlice/types'
 
-export type IdentityObject = {
-    id: string
-};
+export interface IdentityObject {
+  id: string
+}
 
-export type ArgumentType = {
-    serviceApi: FirestoreServiceType
-};
+export interface ArgumentType {
+  serviceApi: FirestoreServiceType
+}
 
-type PostDetailsType = {
-    post: PostType,
-    comments: CommentType[],
-};
-
-export type StateType = {
-    self: SelfStateType,
-    follow: FollowSliceType,
-    notifications: NotificationSliceType,
-    postDetails: PostDetailsSliceType,
-    profile: ProfileSliceType,
-    posts: PostsSliceType,
-};
+export interface StateType {
+  self: SelfStateType
+  follow: FollowSliceType
+  notifications: NotificationSliceType
+  postDetails: PostDetailsSliceType
+  profile: ProfileSliceType
+  posts: PostsSliceType
+}

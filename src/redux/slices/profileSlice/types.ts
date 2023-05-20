@@ -1,12 +1,12 @@
-import { DetailedUserInfoType, LightUserInfoType } from "../../../types";
+import { type DetailedUserInfoType, type LightUserInfoType } from '../../../types'
 
-type ProfileType = {
-    info: DetailedUserInfoType | null,
-    follow: LightUserInfoType[],
-    followers: LightUserInfoType[]
+interface ProfileType {
+  info: DetailedUserInfoType | null
+  follow: LightUserInfoType[]
+  followers: LightUserInfoType[]
 }
 
-export type ProfileSliceType = {
-    profile: ProfileType,
-    loading: boolean
-};
+export interface ProfileSliceType {
+  profile: ProfileType
+  loading: boolean
+}

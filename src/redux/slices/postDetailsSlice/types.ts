@@ -1,11 +1,11 @@
-import { CommentType, PostType } from "../../../types";
+import { type CommentType, type PostType } from '../../../types'
 
-type PostDetailsType = {
-    post: PostType | null,
-    comments: CommentType[],
-};
+interface PostDetailsType {
+  post: PostType | null
+  comments: CommentType[]
+}
 
-export type PostDetailsSliceType = {
-    postDetails: PostDetailsType,
-    loading: boolean,
-};
+export interface PostDetailsSliceType {
+  postDetails: PostDetailsType
+  loading: boolean
+}

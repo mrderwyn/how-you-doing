@@ -1,36 +1,36 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-import { useSelector } from 'react-redux';
-import { profileFollowersSelector, profileFollowSelector, profileLoadingSelector, profileSelector } from '../../redux/selectors';
+import { useSelector } from 'react-redux'
+import { profileFollowersSelector, profileFollowSelector, profileLoadingSelector, profileSelector } from '../../redux/selectors'
 
-import scroll from '../../helpers/scrollToTop';
+import scroll from '../../utils/scrollToTop'
 
-import cn from 'classnames';
+import cn from 'classnames'
 
-import styles from './UserProfile.module.css';
-import Loader from '../Loader/Loader';
-import FollowButton from '../FollowButton/FollowButton';
-import NotFound from '../NotFound/NotFound';
+import styles from './UserProfile.module.css'
+import Loader from '../Loader/Loader'
+import FollowButton from '../FollowButton/FollowButton'
+import NotFound from '../NotFound/NotFound'
 
-const UserProfile = () => {
-    const profile = useSelector(profileSelector);
-    const loading = useSelector(profileLoadingSelector);
-    const followArr = useSelector(profileFollowSelector);
-    const followersArr = useSelector(profileFollowersSelector);
+const UserProfile: React.FC = () => {
+  const profile = useSelector(profileSelector)
+  const loading = useSelector(profileLoadingSelector)
+  const followArr = useSelector(profileFollowSelector)
+  const followersArr = useSelector(profileFollowersSelector)
 
-    if (loading) {
-        return <Loader />
-    }
+  if (loading) {
+    return <Loader />
+  }
 
-    if (profile === null){
-        return <NotFound text="We can't find that user" />
-    }
-    
-    const { background, avatar, name, id } = profile;
-    const [followers, follows] = [followersArr.length, followArr.length];
+  if (profile === null) {
+    return <NotFound text="We can't find that user" />
+  }
 
-    return (
+  const { background, avatar, name, id } = profile
+  const [followers, follows] = [followersArr.length, followArr.length]
+
+  return (
         <div className={styles.container}>
             <div className={styles.header} style={{ backgroundImage: `url('${background}')` }}>
                 <img src={avatar} alt='avatar' className={styles.avatar} />
@@ -61,7 +61,7 @@ const UserProfile = () => {
                 </div>
             </div>
         </div>
-    );
-};
+  )
+}
 
-export default UserProfile;
+export default UserProfile

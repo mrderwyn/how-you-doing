@@ -1,32 +1,32 @@
-import React from 'react';
+import React from 'react'
 
-import { useSelector } from 'react-redux';
-import { postDetailsLoadingSelector, postDetailsSelector } from '../../redux/selectors';
+import { useSelector } from 'react-redux'
+import { postDetailsLoadingSelector, postDetailsSelector } from '../../redux/selectors'
 
-import CommentSection from '../CommentSection/CommentSection';
-import FeedItem from '../FeedItem/FeedItem';
-import Loader from '../Loader/Loader';
-import NotFound from '../NotFound/NotFound';
+import CommentSection from '../CommentSection/CommentSection'
+import FeedItem from '../FeedItem/FeedItem'
+import Loader from '../Loader/Loader'
+import NotFound from '../NotFound/NotFound'
 
-import styles from './PostDetails.module.css';
+import styles from './PostDetails.module.css'
 
-const PostDetails = () => {
-    const post = useSelector(postDetailsSelector);
-    const loading = useSelector(postDetailsLoadingSelector);
-    if (loading) {
-        return <Loader />;
-    }
+const PostDetails: React.FC = () => {
+  const post = useSelector(postDetailsSelector)
+  const loading = useSelector(postDetailsLoadingSelector)
+  if (loading) {
+    return <Loader />
+  }
 
-    if (post === null) {
-        return <NotFound text="We can't find that post" />
-    }
+  if (post === null) {
+    return <NotFound text="We can't find that post" />
+  }
 
-    return (
+  return (
         <div className={styles.container}>
             <FeedItem {...post} disableLink />
             <CommentSection />
         </div>
-    );
-};
+  )
+}
 
-export default PostDetails;
+export default PostDetails

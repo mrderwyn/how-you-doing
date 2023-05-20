@@ -1,5 +1,5 @@
-import { IdentityObject } from "../../types";
+import { type IdentityObject } from '../../types'
 
-export type FollowSliceType = {
-    follows: IdentityObject[],
+export interface FollowSliceType {
+  follows: IdentityObject[]
 }

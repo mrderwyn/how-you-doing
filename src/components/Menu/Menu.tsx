@@ -1,38 +1,39 @@
-import React from 'react';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
+import React from 'react'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebase/firebase'
 
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { selfSelector } from '../../redux/selectors';
+import { useDispatch, useSelector } from 'react-redux'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { selfSelector } from '../../redux/selectors'
 
-import UserCard from '../UserCard/UserCard';
+import UserCard from '../UserCard/UserCard'
 
-import styles from './Menu.module.css';
-import NotificationButton from '../NotificationButton/NotificationButton';
-import { logOut } from '../../redux/slices/selfSlice/slice';
+import styles from './Menu.module.css'
+import NotificationButton from '../NotificationButton/NotificationButton'
+import { logOut } from '../../redux/slices/selfSlice/slice'
 
-const Menu = () => {
-    const self = useSelector(selfSelector);
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+const Menu: React.FC = () => {
+  const self = useSelector(selfSelector)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-    const handleLogOut = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        event.preventDefault();
-        signOut(auth)
-            .then(() => {
-                dispatch(logOut({}));
-                navigate('/');
-            });
-    }
+  const handleLogOut = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+    signOut(auth)
+      .then(() => {
+        dispatch(logOut({}))
+        navigate('/')
+      })
+  }
 
-    return self === null ? (
+  return self === null
+    ? (
         <></>
-    )
+      )
     : (
         <nav className={styles.menu}>
             <div className={styles.item}>
-                <UserCard {...self} /> 
+                <UserCard {...self} />
             </div>
             <NavLink to='/' draggable='false'>
                 <p className={styles.item}>
@@ -44,7 +45,7 @@ const Menu = () => {
                     Peoples
                 </p>
             </NavLink>
-            <NavLink to={`/notifications`} draggable='false'>
+            <NavLink to={'/notifications'} draggable='false'>
                 <div className={styles.item}>
                     <NotificationButton />
                 </div>
@@ -55,7 +56,7 @@ const Menu = () => {
                 </p>
             </a>
         </nav>
-    );
-};
+      )
+}
 
-export default Menu;
+export default Menu

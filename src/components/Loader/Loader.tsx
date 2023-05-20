@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-import styles from './Loader.module.css';
+import styles from './Loader.module.css'
 
-const Loader = () => {
-    return (
+const Loader: React.FC = () => {
+  return (
         <div className={styles.ldsRing}>
             <div></div>
             <div></div>
             <div></div>
             <div></div>
         </div>
-    );
+  )
 }
 
-export default Loader;
+export default Loader

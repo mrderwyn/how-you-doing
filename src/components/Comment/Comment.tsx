@@ -1,13 +1,13 @@
-import React from 'react';
-import { CommentType } from '../../types';
-import TimeAgo from '../TimeAgo/TimeAgo';
+import React from 'react'
+import { type CommentType } from '../../types'
+import TimeAgo from '../TimeAgo/TimeAgo'
 
-import UserCard from '../UserCard/UserCard';
+import UserCard from '../UserCard/UserCard'
 
-import styles from './Comment.module.css';
+import styles from './Comment.module.css'
 
-const Comment = ({id, date, user, text}: CommentType) => {
-    return (
+const Comment: React.FC<CommentType> = ({ id, date, user, text }: CommentType) => {
+  return (
         <div className={styles.comment}>
             <div className={styles.avatar}>
                 <UserCard avatar={user.avatar} id={user.id}/>
@@ -24,7 +24,7 @@ const Comment = ({id, date, user, text}: CommentType) => {
                 </p>
             </div>
         </div>
-    );
-};
+  )
+}
 
-export default Comment;
+export default Comment

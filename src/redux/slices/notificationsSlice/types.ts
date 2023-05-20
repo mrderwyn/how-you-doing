@@ -1,10 +1,10 @@
-import { NotificationType } from "../../../types";
+import { type NotificationType } from '../../../types'
 
-type NotificationsType = {
-    readed: NotificationType[],
-    unreaded: NotificationType[],
+interface NotificationsType {
+  readed: NotificationType[]
+  unreaded: NotificationType[]
 }
 
-export type NotificationSliceType = {
-    notifications: NotificationsType
-};
+export interface NotificationSliceType {
+  notifications: NotificationsType
+}

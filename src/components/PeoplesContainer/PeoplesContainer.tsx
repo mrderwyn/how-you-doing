@@ -1,51 +1,51 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react'
 
-import { useSelector } from 'react-redux';
-import { selfSelector, profileSelector, profileFollowSelector, profileFollowersSelector } from '../../redux/selectors';
+import { useSelector } from 'react-redux'
+import { selfSelector, profileSelector, profileFollowSelector, profileFollowersSelector } from '../../redux/selectors'
 
-import { getAllUsers } from '../../services/firebaseService';
+import { getAllUsers } from '../../services/firebaseService'
 
-import UserList from '../UserList/UserList';
-import Button from '../Button/Button';
+import UserList from '../UserList/UserList'
+import Button from '../Button/Button'
 
-import styles from './PeoplesContainer.module.css';
-import Loader from '../Loader/Loader';
-import FollowButton from '../FollowButton/FollowButton';
-import { IdentityObject } from '../../redux/types';
-import { LightUserInfoType } from '../../types';
+import styles from './PeoplesContainer.module.css'
+import Loader from '../Loader/Loader'
+import FollowButton from '../FollowButton/FollowButton'
+import { type IdentityObject } from '../../redux/types'
+import { type LightUserInfoType } from '../../types'
 
-const PeoplesContainer = () => {
-    const self = useSelector(selfSelector);
-    const user = useSelector(profileSelector);
-    const follow = useSelector(profileFollowSelector);
-    const followers = useSelector(profileFollowersSelector);
+const PeoplesContainer: React.FC = () => {
+  const self = useSelector(selfSelector)
+  const user = useSelector(profileSelector)
+  const follow = useSelector(profileFollowSelector)
+  const followers = useSelector(profileFollowersSelector)
 
-    const [selected, setSelected] = useState('Following');
-    const selectedRef = useRef(selected);
-    selectedRef.current = selected;
+  const [selected, setSelected] = useState('Following')
+  const selectedRef = useRef(selected)
+  selectedRef.current = selected
 
-    const [all, setAll] = useState([] as LightUserInfoType[]);
-    useEffect(() => {
-        getAllUsers().then(users => {
-            setAll(users);
-        });
-    }, []);
+  const [all, setAll] = useState([] as LightUserInfoType[])
+  useEffect(() => {
+    getAllUsers().then(users => {
+      setAll(users)
+    })
+  }, [])
 
-    const changeSelection = useCallback((value: string | undefined) => {
-        if (value !== undefined && value !== selectedRef.current) {
-            setSelected(value);
-        }
-    }, []);
-
-    const creator = useCallback(({ id }: IdentityObject) => {
-        return <FollowButton id={id} />;
-    }, []);
-
-    if (self === null || user === null){
-        return <Loader />;
+  const changeSelection = useCallback((value: string | undefined) => {
+    if (value !== undefined && value !== selectedRef.current) {
+      setSelected(value)
     }
+  }, [])
 
-    return (
+  const creator = useCallback(({ id }: IdentityObject) => {
+    return <FollowButton id={id} />
+  }, [])
+
+  if (self === null || user === null) {
+    return <Loader />
+  }
+
+  return (
         <div className={styles.container}>
             <div className={styles.options}>
                 <Button type='submit' activated={selected === 'Following'} data='Following' action={changeSelection}>Following</Button>
@@ -66,7 +66,7 @@ const PeoplesContainer = () => {
                 )}
             </div>
         </div>
-    );
-};
+  )
+}
 
-export default PeoplesContainer;
+export default PeoplesContainer

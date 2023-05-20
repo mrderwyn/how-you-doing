@@ -1,34 +1,34 @@
-import React, { ReactNode, useCallback } from 'react';
+import React, { type ReactNode, useCallback } from 'react'
 
-import cn from 'classnames';
-import styles from './Button.module.css';
+import cn from 'classnames'
+import styles from './Button.module.css'
 
-type ButtonProps = {
-    type?: 'submit' | 'button' | 'reset',
-    children?: ReactNode,
-    action: (value: string | undefined) => void,
-    data?: string,
-    icon?: string,
-    activated?: boolean,
-    main?: boolean,
-    className?: string,
-};
+interface ButtonProps {
+  type?: 'submit' | 'button' | 'reset'
+  children?: ReactNode
+  action: ((value: string | undefined) => void) | ((value: string | undefined) => Promise<void>)
+  data?: string
+  icon?: string
+  activated?: boolean
+  main?: boolean
+  className?: string
+}
 
-const Button = ({ type = 'submit', children, action, data, icon, activated, main, className }: ButtonProps) => {
-    const clickHandler = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-        action && action(data);
-    }, [action]);
+const Button: React.FC<ButtonProps> = ({ type = 'submit', children, action, data, icon, activated, main, className }: ButtonProps) => {
+  const clickHandler = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    action(data)
+  }, [action])
 
-    const names = icon ? [styles.iconButton] : [styles.button];
-    className && names.push(className);
-    icon && names.push(styles[`icon-${icon}`]);
-    activated && names.push(styles.activated);
-    main && names.push(styles.main);
+  const names = icon ? [styles.iconButton] : [styles.button]
+  className && names.push(className)
+  icon && names.push(styles[`icon-${icon}`])
+  activated && names.push(styles.activated)
+  main && names.push(styles.main)
 
-    return <button type={type} onClick={clickHandler} className={cn(...names)}>
+  return <button type={type} onClick={clickHandler} className={cn(...names)}>
         {children}
     </button>
-};
+}
 
-export default Button;
+export default Button

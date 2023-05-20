@@ -1,47 +1,42 @@
-import React, { useCallback, useRef, useState } from 'react';
-import ImageUploader from 'react-images-upload';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { selfSelector } from '../../redux/selectors';
+import { selfSelector } from '../../redux/selectors'
 
-import Button from '../Button/Button';
+import InputField from '../InputField/InputField'
 
-import InputField from '../InputField/InputField';
+import Loader from '../Loader/Loader'
+import { updateUserInfo } from '../../redux/actions/selfActions'
+import EditImageField from '../EditImageField/EditImageField'
 
-import { storage } from '../../firebase/firebase';
-import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage';
-import Loader from '../Loader/Loader';
-import { updateUserInfo } from '../../redux/actions/selfActions';
-import EditImageField from '../EditImageField/EditImageField';
+import styles from './EditProfile.module.css'
 
-import styles from './EditProfile.module.css';
+const EditProfile: React.FC = () => {
+  const self = useSelector(selfSelector)
 
-const EditProfile = () => {
-    const self = useSelector(selfSelector);
+  const dispatch = useDispatch()
 
-    const dispatch = useDispatch();
-    
-    const updateName = (name: string) => {
-        dispatch(updateUserInfo({ name }) as any);
-    }
+  const updateName = (name: string) => {
+    dispatch(updateUserInfo({ name }) as any)
+  }
 
-    const updateDescription = (description: string) => {
-        dispatch(updateUserInfo({ description }) as any);
-    }
+  const updateDescription = (description: string) => {
+    dispatch(updateUserInfo({ description }) as any)
+  }
 
-    const updateAvatar = useCallback((url: string) => {
-        dispatch(updateUserInfo({ avatar: url }) as any);
-    }, []);
+  const updateAvatar = useCallback((url: string) => {
+    dispatch(updateUserInfo({ avatar: url }) as any)
+  }, [])
 
-    const updateBackground = useCallback((url: string) => {
-        dispatch(updateUserInfo({ background: url }) as any);
-    }, []);
+  const updateBackground = useCallback((url: string) => {
+    dispatch(updateUserInfo({ background: url }) as any)
+  }, [])
 
-    if (!self) {
-        return <Loader />;
-    }
+  if (self == null) {
+    return <Loader />
+  }
 
-    return <div className={styles.container}>
+  return <div className={styles.container}>
         <div className={styles.optionBox}>
             <p className={styles.optionBoxTitle}>Name</p>
             <InputField
@@ -81,6 +76,6 @@ const EditProfile = () => {
             />
         </div>
     </div>
-};
+}
 
-export default EditProfile;
+export default EditProfile
