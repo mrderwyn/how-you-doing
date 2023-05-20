@@ -99,13 +99,24 @@ const PublishFeedForm: React.FC = () => {
       return
     }
 
-    uploadImage(imageRef.current[0], 'images/posts/', true)
+    if (imageRef.current.length === 1) {
+      uploadImage(imageRef.current[0], 'images/posts/', true)
       .then(async (imageUrl) => await createPost(self?.id ?? '', imageUrl, textRef.current, tagsRef.current))
       .then((postId) => {
         if (postId) {
           clearHandler()
         }
       })
+    }
+    else {
+      createPost(self?.id ?? '', '', textRef.current, tagsRef.current)
+        .then(postId => {
+          if (postId) {
+            clearHandler()
+          }
+        })
+    }
+    
   }, [])
 
   if (self === null) {
